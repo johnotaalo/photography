@@ -3,18 +3,18 @@
 /**
 * 
 */
-class Home extends MY_Controller
+class admin extends MY_Controller
 {
 	
 	function __construct()
 	{
 		parent::__construct();
 	}
-
 	public function index()
 	{
 		
 	}
+
 }
 
 ?>
