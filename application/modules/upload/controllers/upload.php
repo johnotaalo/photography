@@ -13,6 +13,9 @@ class Upload extends MY_Controller
 
 	function upload_image()
 	{
-		echo "<pre>";print_r($_FILES);die;
+		$path = '';
+		$config['upload_path'] = './image_uploads/';
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$this->load->library('upload', $config);
 	}
 }

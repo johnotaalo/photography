@@ -3,13 +3,16 @@
 /**
 * 
 */
-class MY_Controller extends MX_Controller
+class admin extends MY_Controller
 {
 	
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->module('upload');
+	}
+	public function index()
+	{
+		
 	}
 
 }
