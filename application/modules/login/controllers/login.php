@@ -35,7 +35,7 @@ class Login extends MY_Controller
 
 			$this->session->set_userdata($data);
 
-			echo "You have successfully logged into photography";
+			redirect(base_url() . 'upload');
 		} else {
 			echo "The credentials you have provided are erroneous";
 			// redirect(base_url().'login');
