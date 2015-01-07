@@ -35,11 +35,22 @@ class Login extends MY_Controller
 
 			$this->session->set_userdata($data);
 
-			echo "You have successfully logged into photography";
+			redirect(base_url().'admin');
 		} else {
-			echo "The credentials you have provided are erroneous";
+			echo "Wrong username or password<br />User not found";
 			// redirect(base_url().'login');
 		}
+		
+	}
+
+	function signup($value=NULL)
+	{
+		if ($value==NULL) {
+			$this->load->view('signup_view');
+		} else {
+			echo "Loading...";
+		}
+		
 		
 	}
 
