@@ -35,22 +35,11 @@ class Login extends MY_Controller
 
 			$this->session->set_userdata($data);
 
-			redirect(base_url().'admin');
+			redirect(base_url() . 'upload');
 		} else {
-			echo "Wrong username or password<br />User not found";
+			echo "The credentials you have provided are erroneous";
 			// redirect(base_url().'login');
 		}
-		
-	}
-
-	function signup($value=NULL)
-	{
-		if ($value==NULL) {
-			$this->load->view('signup_view');
-		} else {
-			echo "Loading...";
-		}
-		
 		
 	}
 
