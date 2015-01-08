@@ -30,4 +30,11 @@ class login_model extends CI_Model {
         return $user;
    }
 
+   function member_registration()
+   {
+        $fname = $this->input->post();
+        $fname = $this->input->post();
+        $fname = $this->input->post();
+   }
+
 }
