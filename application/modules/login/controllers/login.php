@@ -42,6 +42,15 @@ class Login extends MY_Controller
 		}
 		
 	}
+	function signup($value=NULL)
+	{
+		if ($value==NULL) {
+			$this->load->view('signup_view');
+		} else {
+			echo "Loading...";
+		}
+	}
+
 
 	function logout()
 	{
