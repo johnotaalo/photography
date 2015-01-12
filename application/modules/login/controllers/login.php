@@ -35,13 +35,24 @@ class Login extends MY_Controller
 
 			$this->session->set_userdata($data);
 
-			redirect(base_url() . 'upload');
+			$session_details = $this->session->all_userdata();
+			echo "<pre>";print_r($session_details);die()
+			// redirect(base_url() . 'upload');
 		} else {
 			echo "The credentials you have provided are erroneous";
 			// redirect(base_url().'login');
 		}
 		
 	}
+	function signup($value=NULL)
+	{
+		if ($value==NULL) {
+			$this->load->view('signup_view');
+		} else {
+			echo "Loading...";
+		}
+	}
+
 
 	function logout()
 	{

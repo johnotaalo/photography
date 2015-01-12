@@ -13,7 +13,9 @@ class admin extends MY_Controller
 	}
 	public function index()
 	{
-		
+		$data['error'] = '';
+		$data['message'] = '';
+		$this->load->view("admin_view", $data);
 	}
 
 }
