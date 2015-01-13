@@ -10,12 +10,13 @@ class admin extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->module('upload');
+		$this->load->module('template');
 	}
 	public function index()
 	{
 		$data['error'] = '';
 		$data['message'] = '';
-		$this->load->view("admin_view", $data);
+		$this->load->view("template/call_admin_template", $data);
 	}
 
 }

@@ -36,7 +36,7 @@ class Login extends MY_Controller
 			$this->session->set_userdata($data);
 
 			$session_details = $this->session->all_userdata();
-			echo "<pre>";print_r($session_details);die()
+			echo "<pre>";print_r($session_details);die();
 			// redirect(base_url() . 'upload');
 		} else {
 			echo "The credentials you have provided are erroneous";
