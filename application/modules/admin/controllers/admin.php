@@ -16,7 +16,29 @@ class admin extends MY_Controller
 	{
 		$data['error'] = '';
 		$data['message'] = '';
-		$this->load->view("template/call_admin_template", $data);
+		$data['content_page'] = 'admin/dashboard';
+		$this->template->call_admin_template($data);
+		// $this->load->view("template/call_admin_template", $data);
+	}
+
+	public function gallery()
+	{
+		$data['content_page'] = 'admin/gallery';
+		$this->template->call_admin_template($data);
+	}
+
+	public function models()
+	{
+		echo "This is the models section";die();
+	}
+	public function events()
+	{
+		$data['content_page'] = 'admin/events';
+		$this->template->call_admin_template($data);
+	}
+	public function fun_stuff()
+	{
+		echo "This is the fun stuff area";die();
 	}
 
 }
