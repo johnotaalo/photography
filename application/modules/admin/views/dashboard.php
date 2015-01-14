@@ -38,13 +38,13 @@
                 <div class="col-lg-3">
                     <div class="widget style1 navy-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('admin/models')?>">
+                            <a href="<?php echo base_url('admin')?>">
                                 <div class="col-xs-4">
-                                    <i class="fa fa-cloud fa-5x"></i>
+                                    <i class="fa fa-group fa-5x"></i>
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span> Models </span>
-                                    <h2 class="font">26'C</h2>
+                                    <h2 class="font"><?php echo $models[0]['Models']?></h2>
                                 </div>
                             </a>
                         </div>
@@ -55,11 +55,11 @@
                         <div class="row">
                             <a href="<?php echo base_url('admin/events')?>">
                                 <div class="col-xs-4">
-                                    <i class="fa fa-envelope-o fa-5x"></i>
+                                    <i class="fa fa-calendar fa-5x"></i>
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span> Events </span>
-                                    <h2 class="font">260</h2>
+                                    <h2 class="font"><?php echo $events[0]['Events'];?></h2>
                                 </div>
                             </a>
                         </div>
@@ -68,9 +68,9 @@
                 <div class="col-lg-3">
                     <div class="widget style1 yellow-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('admin/fun_stuff')?>">
+                            <a href="<?php echo base_url('admin')?>">
                                 <div class="col-xs-4">
-                                    <i class="fa fa-music fa-5x"></i>
+                                    <i class="fa fa-child fa-5x"></i>
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span> Fun Stuff </span>
@@ -82,136 +82,8 @@
                 </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Transactions worldwide</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                                </a>
-                                
-                            </div>
-                        </div>
-                        <div class="ibox-content">
-
-                            
-                                    <table class="table table-hover margin bottom">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 1%" class="text-center">No.</th>
-                                                <th>Transaction</th>
-                                                <th class="text-center">Date</th>
-                                                <th class="text-center">Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td> Security doors
-                                                </td>
-                                                <td class="text-center small">16 Jun 2014</td>
-                                                <td class="text-center"><span class="label label-primary">$483.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">2</td>
-                                                <td> Wardrobes
-                                                </td>
-                                                <td class="text-center small">10 Jun 2014</td>
-                                                <td class="text-center"><span class="label label-primary">$327.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">3</td>
-                                                <td> Set of tools
-                                               </td>
-                                               <td class="text-center small">12 Jun 2014</td>
-                                                <td class="text-center"><span class="label label-warning">$125.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">4</td>
-                                                <td> Panoramic pictures</td>
-                                                <td class="text-center small">22 Jun 2013</td>
-                                                <td class="text-center"><span class="label label-primary">$344.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">5</td>
-                                                <td>Phones</td>
-                                                <td class="text-center small">24 Jun 2013</td>
-                                                <td class="text-center"><span class="label label-primary">$235.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">6</td>
-                                                <td>Monitors</td>
-                                                <td class="text-center small">26 Jun 2013</td>
-                                                <td class="text-center"><span class="label label-primary">$100.00</span></td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                                
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Transactions worldwide</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                <i class="fa fa-chevron-up"></i>
-                                </a>
-                                
-                            </div>
-                        </div>
-                        <div class="ibox-content">
-
-                            
-                                
-                                    <table class="table table-hover margin bottom">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 1%" class="text-center">No.</th>
-                                                <th>Transaction</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td> Security doors
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">2</td>
-                                                <td> Wardrobes
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">3</td>
-                                                <td> Set of tools
-                                               </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">4</td>
-                                                <td> Panoramic pictures</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">5</td>
-                                                <td>Phones</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">6</td>
-                                                <td>Monitors</td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                                
-                               
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
+            <div class="hr-line-dashed"></div>
+            
             <div class="row">
                 <div class="col-lg-4">
                     <div class="ibox float-e-margins">
@@ -268,7 +140,7 @@
                 <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Transactions worldwide</h5>
+                            <h5>Quick Upload</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -277,55 +149,81 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-
-                            
-                                
-                                    <table class="table table-hover margin bottom">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 1%" class="text-center">No.</th>
-                                                <th>Transaction</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td> Security doors
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">2</td>
-                                                <td> Wardrobes
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">3</td>
-                                                <td> Set of tools
-                                               </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">4</td>
-                                                <td> Panoramic pictures</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">5</td>
-                                                <td>Phones</td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">6</td>
-                                                <td>Monitors</td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                                
+                            <form method = "POST" class="form-horizontal" name = "image_uploader" enctype="multipart/form-data" action = "<?php echo base_url(); ?>upload/upload_image">
                                
+                                <div class = "form-group">
+                                    <input class="form-control" type="text" name="upload_name" placeholder="Name of Image" required/>
+                                </div>
+                                <div class = "form-group">
+                                    <textarea class="form-control" name='upload_description' placeholder="Enter Description..." required></textarea>
+                                </div>
+                                 <div class = "form-group">
+                                    <input type = "file" name = "upload_image" required/>
+                                </div>
+
+                                <div class="form-group">
+                                    <button name = "upload_button" class="btn btn-success " type="submit"><i class="fa fa-upload"></i>&nbsp;&nbsp;<span class="bold">Upload</span></button>
+                                </div>
+                               
+                                <div class = "message_box"><span class = "<?php if($error){ echo 'error';}else echo 'success' ?>"><p><?php echo $message; ?></p></span></div>
+                            </form>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Transactions worldwide</h5>
+                            <h5>Custom pie size example</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                    <i class="fa fa-wrench"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user">
+                                    <li><a href="#">Config option 1</a>
+                                    </li>
+                                    <li><a href="#">Config option 2</a>
+                                    </li>
+                                </ul>
+                                <a class="close-link">
+                                    <i class="fa fa-times"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content text-center h-200">
+                            <span id="sparkline7"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="ibox-content">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Line Chart Example
+                                <small>With custom colors.</small>
+                                </h5>
+                                <div ibox-tools></div>
+                            </div>
+                            <div class="ibox-content">
+                                <div>
+                                    <canvas id="lineChart" height="140"></canvas>
+                                </div>
+                            </div>
+                        </div>                                    
+                    </div>
+                    
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Quick Email</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -334,46 +232,23 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-
-                            
-                                    <table class="table table-hover margin bottom">
-                                        <thead>
-                                            <tr>
-                                                <th>Transaction</th>
-                                                <th class="text-center">Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td> Security doors
-                                                </td>
-                                                <td class="text-center"><span class="label label-primary">$483.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td> Wardrobes
-                                                </td>
-                                                <td class="text-center"><span class="label label-primary">$327.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td> Set of tools
-                                               </td>
-                                               <td class="text-center"><span class="label label-warning">$125.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td> Panoramic pictures</td>
-                                                <td class="text-center"><span class="label label-primary">$344.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Phones</td>
-                                                <td class="text-center"><span class="label label-primary">$235.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Monitors</td>
-                                                <td class="text-center"><span class="label label-primary">$100.00</span></td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
+                            <form method="post" class="form-horizontal" action="">
+                                <div class="form-group">
+                                    <div class=""><input type="text" class="form-control" name="email_address" id="email_address" placeholder="Email Address"></div>
+                                </div>
                                 
+                                <div class="form-group">
+                                    <div class=""><input type="text" class="form-control" name="subject" id="subject" placeholder="Subject"></div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <div class="form-group">
+                                    <div class="">
+                                        <textarea class="form-control" name="message" id="message" placeholder="Type Message Here..." rows="5"></textarea>
+                                    </div>
+                                </div>
+                                <div class="hr-line-dashed"></div>
+                                <button class="btn btn-primary " type="button"><i class="fa fa-send"></i>&nbsp;Send Mail</button>
+                            </form>
                         </div>
                     </div>
                 </div>           

@@ -147,6 +147,10 @@
     <!-- Sparkline demo data  -->
     <script src="<?php echo base_url(); ?>assets/admin/js/demo/sparkline-demo.js"></script>
 
+     <!-- ChartJS-->
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/chartJs/Chart.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/demo/chartjs-demo.js"></script>
+
 </body>
 
 <!-- Mirrored from webapplayers.com/inspinia_admin-v1.6/dashboard_2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Dec 2014 12:00:37 GMT -->

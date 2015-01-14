@@ -11,12 +11,17 @@ class admin extends MY_Controller
 		parent::__construct();
 		$this->load->module('upload');
 		$this->load->module('template');
+		$this->load->model('admin_model');
 	}
 	public function index()
 	{
 		$data['error'] = '';
 		$data['message'] = '';
+		$data['events'] = $this->admin_model->get_event_counts();
+		$data['models'] = $this->admin_model->get_model_count();
 		$data['content_page'] = 'admin/dashboard';
+
+		// echo "<pre>";print_r($data);die();
 		$this->template->call_admin_template($data);
 		// $this->load->view("template/call_admin_template", $data);
 	}
@@ -27,19 +32,13 @@ class admin extends MY_Controller
 		$this->template->call_admin_template($data);
 	}
 
-	public function models()
-	{
-		echo "This is the models section";die();
-	}
+	
 	public function events()
 	{
 		$data['content_page'] = 'admin/events';
 		$this->template->call_admin_template($data);
 	}
-	public function fun_stuff()
-	{
-		echo "This is the fun stuff area";die();
-	}
+	
 
 }
 
