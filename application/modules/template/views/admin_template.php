@@ -21,6 +21,10 @@
 
     <link href="<?php echo base_url(); ?>assets/admin/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/style.css" rel="stylesheet">
+
+     <!-- Data Tables -->
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
      <style type="text/css">
     a {
         text-decoration: none;
@@ -150,6 +154,11 @@
      <!-- ChartJS-->
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/chartJs/Chart.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/demo/chartjs-demo.js"></script>
+
+    <!-- Data Tables -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.responsive.js"></script>
 
 </body>
 
