@@ -34,7 +34,7 @@
                             P+
                         </div>
                     </li>
-                   <li>
+                   <li class = "active">
                         <a href="#"><i class="fa fa-dashboard"></i> <span class="nav-label">Home</span> </a>
                     </li>
                     <li>
@@ -92,8 +92,8 @@
 
         </nav>
         </div>
-            <div class="wrapper wrapper-content">
-       
+        <div class="wrapper wrapper-content">
+        <?php //$this->load->view($content_view); ?>
         <div class="footer">
             <div>
                 <strong>Copyright</strong> Photography &copy; 2014-2015
