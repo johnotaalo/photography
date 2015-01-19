@@ -22,6 +22,20 @@
     <link href="<?php echo base_url(); ?>assets/admin/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/style.css" rel="stylesheet">
 
+     <!-- Data Tables -->
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
+     <style type="text/css">
+    a {
+        text-decoration: none;
+        color: white;
+    }
+    a:hover {
+        text-decoration: none;
+        color: white;
+    }
+    </style>
+
 </head>
 
 <body>
@@ -34,8 +48,8 @@
                             P+
                         </div>
                     </li>
-                   <li class = "active">
-                        <a href="#"><i class="fa fa-dashboard"></i> <span class="nav-label">Home</span> </a>
+                   <li>
+                        <a href="<?php echo base_url('admin')?>"><i class="fa fa-dashboard"></i> <span class="nav-label">Home</span> </a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-align-right"></i> <span class="nav-label">Categories</span> </a>
@@ -92,15 +106,12 @@
 
         </nav>
         </div>
-        <div class="wrapper wrapper-content">
-        <?php //$this->load->view($content_view); ?>
-        <div class="footer">
-            <div>
-                <strong>Copyright</strong> Photography &copy; 2014-2015
-            </div>
-        </div>
-        </div>
-    </div>
+        <!--Content Page begins here-->
+        <?php
+            $this->load->view($content_page);
+        ?>
+        <!--End of content page-->
+
 
     <!-- Mainly scripts -->
     <script src="<?php echo base_url(); ?>assets/admin/js/jquery-2.1.1.js"></script>
@@ -139,6 +150,15 @@
 
     <!-- Sparkline demo data  -->
     <script src="<?php echo base_url(); ?>assets/admin/js/demo/sparkline-demo.js"></script>
+
+     <!-- ChartJS-->
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/chartJs/Chart.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/demo/chartjs-demo.js"></script>
+
+    <!-- Data Tables -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.responsive.js"></script>
 
 </body>
 
