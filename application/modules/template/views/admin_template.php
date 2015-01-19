@@ -11,6 +11,7 @@
     <title>Photography</title>
 
     <link href="<?php echo base_url(); ?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/datapicker/datepicker3.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Morris -->
@@ -26,15 +27,17 @@
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
      <style type="text/css">
-    a {
+    /*a {
         text-decoration: none;
         color: white;
     }
     a:hover {
         text-decoration: none;
         color: white;
-    }
+    }*/
     </style>
+    <script src="<?php echo base_url(); ?>assets/admin/js/jquery-2.1.1.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
 </head>
 
@@ -49,16 +52,16 @@
                         </div>
                     </li>
                    <li>
-                        <a href="<?php echo base_url('admin')?>"><i class="fa fa-dashboard"></i> <span class="nav-label">Home</span> </a>
+                        <a href="<?php echo base_url('admin');?>"><i class="fa fa-dashboard"></i> <span class="nav-label">Home</span> </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-align-right"></i> <span class="nav-label">Categories</span> </a>
+                        <a href=""><i class="fa fa-align-right"></i> <span class="nav-label">Categories</span> </a>
                     </li>
                    <li>
                         <a href="#"><i class="fa fa-upload"></i> <span class="nav-label">Uploads</span> </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-user"></i> <span class="nav-label">Models</span> </a>
+                        <a href="<?php echo base_url();?>models/modellist"><i class="fa fa-user"></i> <span class="nav-label">Models</span> </a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-phone"></i> <span class="nav-label">Phone Book</span> </a>
@@ -114,7 +117,7 @@
 
 
     <!-- Mainly scripts -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/jquery-2.1.1.js"></script>
+    
     <script src="<?php echo base_url(); ?>assets/admin/js/bootstrap.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
@@ -153,7 +156,7 @@
 
      <!-- ChartJS-->
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/chartJs/Chart.min.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/demo/chartjs-demo.js"></script>
+    <!-- // <scri/pt src="<?php echo base_url(); ?>assets/admin/js/demo/chartjs-demo.js"></script> -->
 
     <!-- Data Tables -->
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/jquery.dataTables.js"></script>
