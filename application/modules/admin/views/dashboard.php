@@ -29,7 +29,7 @@
                                     </div>
                                     <div class="col-xs-8 text-right">
                                         <span> Pick of the Day </span>
-                                        <h2 class="font">$ 4,232</h2>
+                                        <!-- <h2 class="font">$ 4,232</h2> -->
                                     </div>
                                 </a>
                             </div>
@@ -74,7 +74,7 @@
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span> Fun Stuff </span>
-                                    <h2 class="font">12</h2>
+                                    <!-- <h2 class="font">12</h2> -->
                                 </div>
                             </a>
                         </div>
@@ -88,7 +88,7 @@
                 <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Transactions worldwide</h5>
+                            <h5>Daily ACtivities</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -96,44 +96,8 @@
                                 
                             </div>
                         </div>
-                        <div class="ibox-content">
-
-                            
-                                    <table class="table table-hover margin bottom">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 1%" class="text-center">No.</th>
-                                                <th class="text-center">Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center"><span class="label label-primary">$483.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">2</td>
-                                                <td class="text-center"><span class="label label-primary">$327.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">3</td>
-                                               <td class="text-center"><span class="label label-warning">$125.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">4</td>
-                                                <td class="text-center"><span class="label label-primary">$344.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">5</td>
-                                                <td class="text-center"><span class="label label-primary">$235.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">6</td>
-                                               <td class="text-center"><span class="label label-primary">$100.00</span></td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                                
+                       <div class="ibox-content text-center h-200">
+                            <span id="sparkline7"></span>
                         </div>
                     </div>
                 </div>

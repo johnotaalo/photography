@@ -23,8 +23,12 @@
     <link href="<?php echo base_url(); ?>assets/admin/css/style.css" rel="stylesheet">
 
      <!-- Data Tables -->
+
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
+
+    <link href="<?php echo base_url(); ?>assets/admin/css/animate.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/admin/css/style.css" rel="stylesheet">
      <style type="text/css">
     a {
         text-decoration: none;
@@ -67,7 +71,7 @@
                         <a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Calendar</span> </a>
                     </li>
                    <li>
-                        <a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Events</span> </a>
+                        <a href="<?php echo base_url('admin/events')?>"><i class="fa fa-calendar"></i> <span class="nav-label">Events</span> </a>
                     </li>
                     <li>
                         <a href="#"><i class="fa fa-lock"></i> <span class="nav-label">Log Out</span> </a>
@@ -159,7 +163,51 @@
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.responsive.js"></script>
+     <!-- Mainly scripts -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/jquery-2.1.1.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/jeditable/jquery.jeditable.js"></script>
+     <script>
+        $(document).ready(function() {
+            $('.dataTables-example').dataTable({
+                responsive: true
+            });
 
+            /* Init DataTables */
+            var oTable = $('#editable').dataTable();
+
+            /* Apply the jEditable handlers to the table */
+            oTable.$('td').editable( 'http://webapplayers.com/example_ajax.php', {
+                "callback": function( sValue, y ) {
+                    var aPos = oTable.fnGetPosition( this );
+                    oTable.fnUpdate( sValue, aPos[0], aPos[1] );
+                },
+                "submitdata": function ( value, settings ) {
+                    return {
+                        "row_id": this.parentNode.getAttribute('id'),
+                        "column": oTable.fnGetPosition( this )[2]
+                    };
+                },
+
+                "width": "90%",
+                "height": "100%"
+            } );
+
+
+        });
+
+        function fnClickAddRow() {
+            $('#editable').dataTable().fnAddData( [
+                "Custom row",
+                "New row",
+                "New row",
+                "New row",
+                "New row" ] );
+
+        }
+    </script>
 </body>
 
 <!-- Mirrored from webapplayers.com/inspinia_admin-v1.6/dashboard_2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Dec 2014 12:00:37 GMT -->
