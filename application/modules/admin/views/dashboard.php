@@ -184,7 +184,7 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <form method="post" class="form-horizontal" action="">
+                            <form method="post" class="form-horizontal" action="<?php base_url('admin/email_send')?>">
                                 <div class="form-group">
                                     <div class=""><input type="text" class="form-control" name="email_address" id="email_address" placeholder="Email Address"></div>
                                 </div>
@@ -199,7 +199,7 @@
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
-                                <button class="btn btn-primary " type="button"><i class="fa fa-send"></i>&nbsp;Send Mail</button>
+                                <button class="btn btn-primary " type="submit"><i class="fa fa-send"></i>&nbsp;Send Mail</button>
                             </form>
                         </div>
                     </div>

@@ -12,6 +12,41 @@ class MY_Controller extends MX_Controller
 		$this->load->module('upload');
 	}
 
+	public function email($id=NULL, $recepient, $subject, $message)  
+    {
+        $time=date('Y-m-d');
+        
+        $config = array(
+            'protocol' => 'smtp',
+            'smtp_host' => 'ssl://smtp.googlemail.com',
+            'smtp_port' => 465,
+            'smtp_user' => "chrisrichrads@gmail.com",
+            'smtp_pass' => "joshuaSUN"
+            );
+        
+        $this->load->library('email', $config);
+        $this->email->set_newline("\r\n");
+
+        $this->email->from('chrisrichrads@gmail.com', 'PHOTOGRAPHY');
+        $this->email->to($recepient);
+        $this->email->subject($subject);
+        $this->email->message($message);
+        $this->email->set_mailtype("html");
+        // if(!is_null($attached_file)){
+        //  $this->email->attach($attached_file);
+        // }
+        // $this->m_admin->send_mail($id, $recepient, $subject, $message);
+        if($this->email->send())
+            {   
+
+               $this->m_admin->send_mail();
+            } else 
+            {
+                show_error($this->email->print_debugger());
+            }
+        
+    }
+
 }
 
 ?>

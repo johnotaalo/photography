@@ -42,6 +42,15 @@ class admin extends MY_Controller
 		$this->template->call_admin_template($data);
 	}
 
+	public function email_send()
+	{
+		$recepient = $this->input->post('email_address');
+		$subject = $this->input->post('subject');
+		$message = $this->input->post('message');
+		$this->email($id=NULL, $recepient, $subject, $message);
+		redirect('admin');
+	}
+
 	public function ss_all_events()
 	{
 		$eve_details = $this->admin_model->call_all_events();
