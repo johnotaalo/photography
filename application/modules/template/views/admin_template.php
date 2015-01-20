@@ -11,7 +11,7 @@
     <title>Photography</title>
 
     <link href="<?php echo base_url(); ?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/datapicker/datepicker3.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Morris -->
