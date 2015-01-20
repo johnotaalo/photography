@@ -23,7 +23,7 @@ class m_models extends CI_Model
 			return false;
 		}
 	}
-	function addmodel()
+	function addmodel($profile)
 	{
 		$insert_data = array();
 		if ($this->input->post()) {
