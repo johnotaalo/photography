@@ -1,13 +1,21 @@
 <style type="text/css">
 	.image-holder
 	{
-		height: 150px;
-		width: 150px;
+		width: 100%;
 		padding: 40px;
-		background-color: #f3f3f3;
-		border: 1px solid #123;
+	}
+
+	#imagePreview
+	{
+		margin: 0 10px 0 100px;
+		background-position: center center;
+		background-size: cover;
+		-webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+		display: inline-block;
+		background-image: url('<?php echo base_url(); ?>assets/avatar/avatar-male.png');
 	}
 </style>
+
 <div class="wrapper wrapper-content animated fadeInRight">
 	<div class = "row">
 		<div class="ibox float-e-margins">
@@ -15,59 +23,64 @@
                 <h5>Model Registration <small>Add Models Here</small></h5>
             </div>
             <div class="ibox-content">
-                <form method="POST" class="form-horizontal" action = "<?php echo base_url(); ?>models/addmodel">
-                <div class = "row">
-                	<div class = "col-md-6">
-	                    <div class="form-group"><label class="col-sm-3 control-label">First Name: </label>
+                <form method="POST" class="form-horizontal" action = "<?php echo base_url(); ?>models/addmodel" enctype="multipart/form-data">
+	                <div class = "row">
+	                	<div class = "col-md-6">
+		                    <div class="form-group"><label class="col-sm-3 control-label">First Name: </label>
 
-	                        <div class="col-sm-9"><input type="text" class="form-control" name = "first_name" required></div>
-	                    </div>
-	                    <div class="form-group"><label class="col-sm-3 control-label">Last Name: </label>
+		                        <div class="col-sm-9"><input type="text" class="form-control" name = "first_name" required></div>
+		                    </div>
+		                    <div class="form-group"><label class="col-sm-3 control-label">Last Name: </label>
 
-	                        <div class="col-sm-9"><input type="text" class="form-control" name = "last_name" required></div>
-	                    </div>
+		                        <div class="col-sm-9"><input type="text" class="form-control" name = "last_name" required></div>
+		                    </div>
 
-	                    <div class="form-group" id="data_1">
-                                <label class="col-sm-3 control-label">Date of Birth: </label>
-                                <div class = "col-sm-9">
-	                                <div class="input-group date">
-	                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control dob" name = "dob" required >
+		                    <div class="form-group" id="data_1">
+	                                <label class="col-sm-3 control-label">Date of Birth: </label>
+	                                <div class = "col-sm-9">
+		                                <div class="input-group date">
+		                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text" class="form-control dob" name = "dob" required >
+		                                </div>
 	                                </div>
-                                </div>
-                            </div>
-	                    <div class="hr-line-dashed"></div>
-	                    <div class="form-group"><label class="col-sm-3 control-label">Telephone: </label>
+	                            </div>
+		                    <div class="hr-line-dashed"></div>
+		                    <div class="form-group"><label class="col-sm-3 control-label">Telephone: </label>
 
-	                        <div class="col-sm-9"> <div class="input-group m-b"><span class="input-group-addon"><i class = "fa fa-phone"></i></span> <input  required type="text" placeholder="Telephone" class="form-control" name = "telephone"></div></div>
-	                    </div>
+		                        <div class="col-sm-9"> <div class="input-group m-b"><span class="input-group-addon"><i class = "fa fa-phone"></i></span> <input  required type="text" placeholder="Telephone" class="form-control" name = "telephone"></div></div>
+		                    </div>
 
-	                    <div class="form-group"><label class="col-sm-3 control-label">Email: </label>
+		                    <div class="form-group"><label class="col-sm-3 control-label">Email: </label>
 
-	                        <div class="col-sm-9"> <div class="input-group m-b"><span class="input-group-addon">@</span> <input required type="email" placeholder="Email Address" class="form-control" name = "email"></div></div>
-	                    </div>
-	                   <div class="form-group"><label class="col-sm-3 control-label">Address: </label>
+		                        <div class="col-sm-9"> <div class="input-group m-b"><span class="input-group-addon">@</span> <input required type="email" placeholder="Email Address" class="form-control" name = "email"></div></div>
+		                    </div>
+		                   <div class="form-group"><label class="col-sm-3 control-label">Address: </label>
 
-	                        <div class="col-sm-9"><textarea class="form-control" name = "address" required></textarea></div>
-	                    </div>
-	                    <div class="hr-line-dashed"></div>
-	                    <div class="form-group"><label class="col-sm-3 control-label">Occupation: </label>
+		                        <div class="col-sm-9"><textarea class="form-control" name = "address" required></textarea></div>
+		                    </div>
+		                    <div class="hr-line-dashed"></div>
+		                    <div class="form-group"><label class="col-sm-3 control-label">Occupation: </label>
 
-	                        <div class="col-sm-9"><input type="text" class="form-control" name = "occupation" required></div>
-	                    </div>
-	                     <div class="form-group"><label class="col-sm-3 control-label">Company: </label>
+		                        <div class="col-sm-9"><input type="text" class="form-control" name = "occupation" required></div>
+		                    </div>
+		                     <div class="form-group"><label class="col-sm-3 control-label">Company: </label>
 
-	                        <div class="col-sm-9"><input type="text" class="form-control" name = "company" required ></div>
-	                    </div>
+		                        <div class="col-sm-9"><input type="text" class="form-control" name = "company" required ></div>
+		                    </div>
 
-	                    <div class="form-group"><label class="col-sm-3 control-label">Profile Picture: </label>
+		                  
 
-	                        <div class="col-sm-9"><input type = "file" class = "form-control" name = "profile" required/></div>
-	                    </div>
+		                    <div class = "buttons">
+		                    	<button type = "submit" class = "btn btn-success">Save</button>
+		                    </div>
+		                    </div>
 
-	                    <div class = "buttons">
-	                    	<button type = "submit" class = "btn btn-success">Save</button>
-	                    </div>
-	                    </div>
+		                    <div class = "col-md-6">
+		                    	<div class = "image-holder" id = 'imagePreview' style = ""></div>
+								<div class="form-group"><label class="col-sm-3 control-label">Profile Picture: </label>
+
+									<div class="col-sm-9"><input type = "file" class = "form-control" name = "profile" id = "uploadImage" required/></div>
+								</div>
+		                    </div>
 	                    </div>
                 </form>
             </div>
@@ -77,12 +90,38 @@
 
 <script type="text/javascript">
 	$(document).ready(function () {
-		$('#data_1 .input-group.date').datepicker({
-                todayBtn: "linked",
-                keyboardNavigation: false,
-                forceParse: false,
-                calendarWeeks: true,
-                autoclose: true
-            });
+		width = $('.image-holder').width();
+		height = width - 150;
+		width = height;
+		$('.image-holder').height(height);
+		$('.image-holder').width(width);
+		$('#data_1 .input-group.date .dob').datepicker({
+            todayBtn: "linked",
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+		$(function() {
+			$("#uploadImage").on("change", function()
+			{
+				var files = !!this.files ? this.files : [];
+				if (!files.length || !window.FileReader)  return; // no file selected, or no FileReader support
+
+				if (/^image/.test( files[0].type)){ // only image file
+					var reader = new FileReader(); // instance of the FileReader
+					reader.readAsDataURL(files[0]); // read the local file
+
+					reader.onloadstart = function(){
+						$("#imagePreview").text('Please Wait...');
+						$("#imagePreview").css("background-color", "rgba(0,0,0,0.8)");
+					}
+					reader.onloadend = function(){ // set image data as background of div
+						$("#imagePreview").css("background-image", "url("+this.result+")");
+						$("#imagePreview").text('');
+					}
+				}
+			});
+		});
 	});
 </script>

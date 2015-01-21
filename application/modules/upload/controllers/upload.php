@@ -88,4 +88,26 @@ class Upload extends MY_Controller
 
 		return mysql_insert_id();
 	}
+
+	function uploadanimage($upload, $upload_path)
+	{
+		$message = array();
+		$path = '';
+		$config['upload_path'] = './'.$upload_path;
+		$config['allowed_types'] = 'gif|jpg|png|jpeg';
+		$this->load->library('upload', $config);
+		if(!$this->upload->do_upload($upload))
+		{
+			$message['type'] = "failed";
+			$message['error'] = $this->upload->display_errors();
+		}
+		else
+		{
+			$upload_data = $this->upload->data();
+			$message['type'] = "success";
+			$message['path'] = base_url() . $upload_path .'/'.$upload_data['file_name'];
+		}
+
+		return $message;
+	}
 }

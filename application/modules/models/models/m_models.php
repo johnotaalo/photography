@@ -23,7 +23,7 @@ class m_models extends CI_Model
 			return false;
 		}
 	}
-	function addmodel($profile)
+	function addmodel()
 	{
 		$insert_data = array();
 		if ($this->input->post()) {
@@ -49,7 +49,7 @@ class m_models extends CI_Model
 	function get_model_image_count()
 	{
 		$model_data = array();
-		$sql = "SELECT model_id, COUNT(img_id) as images FROM image_model GROUP BY model_id";
+		$sql = "SELECT model_id, COUNT(img_id) as images FROM image_model GROUP BY model_id ORDER BY images DESC";
 		$query = $this->db->query($sql);
 		$result = $query->result_array();
 
@@ -118,5 +118,33 @@ class m_models extends CI_Model
 		}
 
 		return $model_data;
+	}
+
+	function getmodeladditiondate()
+	{
+		$sql = "SELECT MAX(added_on) as most FROM models";
+		$query = $this->db->query($sql);
+
+		$row = $query->row();
+
+		if($row->most)
+		{
+			return $row->most;
+		}
+		else
+		{
+			return FALSE;
+		}
+
+	}
+
+	function getmodelcount()
+	{
+		$sql = "SELECT count(model_id) as models FROM models WHERE active = 1";
+		$query = $this->db->query($sql);
+
+		$result = $query->row();
+
+		return $result->models;
 	}
 }
