@@ -30,15 +30,13 @@
 
     <link href="<?php echo base_url(); ?>assets/admin/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/style.css" rel="stylesheet">
-     <style type="text/css">
+    
+    <style type="text/css">
     /*a {
-        text-decoration: none;
         color: white;
+        text-decoration: none;
     }
-    a:hover {
-        text-decoration: none;
-        color: white;
-    }*/
+*/
     </style>
     <script src="<?php echo base_url(); ?>assets/admin/js/jquery-2.1.1.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>

@@ -40,6 +40,13 @@ class admin extends MY_Controller
 		$this->template->call_admin_template($data);
 	}
 
+	public function event_profile($event_id)
+	{
+		$data['content_page'] = 'admin/event_profile';
+
+		$this->template->call_admin_template($data);
+	}
+
 	public function email_send()
 	{
 		$recepient = $this->input->post('email_address');
@@ -52,7 +59,7 @@ class admin extends MY_Controller
 	public function ss_all_events()
 	{
 		$eve_details = $this->admin_model->call_all_events();
-
+		// echo "<pre>";print_r($eve_details);die();
 		
 		$count = 0;
 		$this->event_details .= "<tbody>";
@@ -68,7 +75,7 @@ class admin extends MY_Controller
 				$this->event_details .= '<td>'.$value['event_name'].'</td>';
 				$this->event_details .= '<td>'.$value['place'].'</td>';
 				$this->event_details .= '<td>'.$value['date'].'</td>';
-				$this->event_details .= '<td><a href = "'.base_url().'admin">View event</a></td>';
+				$this->event_details .= '<td><a href = "'.base_url().'admin/event_profile/'.$value['event_id'].'">View event</a></td>';
 				$this->event_details .= '</tr>';
 			}
 		}

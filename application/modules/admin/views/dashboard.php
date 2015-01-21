@@ -1,3 +1,9 @@
+<style type="text/css">
+    a {
+        color: white;
+        text-decoration: none;
+    }
+</style>
 <div>
 	<!-- <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
@@ -38,7 +44,7 @@
                 <div class="col-lg-3">
                     <div class="widget style1 navy-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('admin')?>">
+                            <a href="<?php echo base_url('models/modellist')?>">
                                 <div class="col-xs-4">
                                     <i class="fa fa-group fa-5x"></i>
                                 </div>

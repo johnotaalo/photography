@@ -28,7 +28,7 @@ class Models extends MY_Controller
 		$returned = $this->m_models->addmodel();
 		if($returned)
 		{
-			redirect(base_url().'models');
+			redirect(base_url().'models/modellist');
 		}
 	}
 }
