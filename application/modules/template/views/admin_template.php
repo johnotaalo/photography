@@ -11,7 +11,7 @@
     <title>Photography</title>
 
     <link href="<?php echo base_url(); ?>assets/admin/css/bootstrap.min.css" rel="stylesheet">
-    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    
     <link href="<?php echo base_url(); ?>assets/admin/font-awesome/css/font-awesome.css" rel="stylesheet">
 
     <!-- Morris -->
@@ -22,6 +22,7 @@
 
     <link href="<?php echo base_url(); ?>assets/admin/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
 
      <!-- Data Tables -->
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
@@ -38,6 +39,10 @@
     </style>
     <script src="<?php echo base_url(); ?>assets/admin/js/jquery-2.1.1.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/datapicker/bootstrap-datepicker.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/gritter/jquery.gritter.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/jquery.dataTables.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.responsive.js"></script>
 
 </head>
 
@@ -159,11 +164,8 @@
     <!-- // <scri/pt src="<?php echo base_url(); ?>assets/admin/js/demo/chartjs-demo.js"></script> -->
 
     <!-- Data Tables -->
-    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/jquery.dataTables.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.bootstrap.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.responsive.js"></script>
+    
+
 
 </body>
-
-<!-- Mirrored from webapplayers.com/inspinia_admin-v1.6/dashboard_2.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 13 Dec 2014 12:00:37 GMT -->
 </html>
