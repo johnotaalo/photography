@@ -33,6 +33,7 @@ class Models extends MY_Controller
 		$data['table'] = $this->createmodels('table');
 		$data['grid'] = $this->createmodels();
 		$data['content_page'] = 'models/v_models';
+		// echo "<pre>";print_r($data['grid']);die();
 		$this->template->call_admin_template($data);
 	}
 	public function newmodel()

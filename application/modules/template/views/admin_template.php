@@ -27,6 +27,12 @@
      <!-- Data Tables -->
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
+
+    <!-- Drop Zone-->
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dropzone/dropzone.css" type="text/css" rel="stylesheet" />
+
+
+
      <style type="text/css">
     /*a {
         text-decoration: none;
@@ -43,6 +49,7 @@
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/jquery.dataTables.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.responsive.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dropzone/dropzone.min.js"></script>
 
 </head>
 

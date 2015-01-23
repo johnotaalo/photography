@@ -9,17 +9,22 @@
                         </div>
                         <div>
                             <div class="ibox-content no-padding border-left-right">
-                                <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/profile_big.jpg">
+                                <img alt="image" class="img-responsive" src="<?php echo $eve_details[0]['image_path']; ?>">
                             </div>
                             <div class="ibox-content profile-content">
-                                <h4><strong>Monica Smith</strong></h4>
-                                <p><i class="fa fa-map-marker"></i> Riviera State 32/106</p>
-                                <h5>
-                                    About me
-                                </h5>
+                                <h4><strong><?php echo $eve_details[0]["event_name"]; ?></strong></h4>
+                                <p><i class="fa fa-map-marker"></i><?php echo $eve_details[0]["place"]; ?></p>
                                 <p>
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
+                                    <?php echo $eve_details[0]["Description"];?>
                                 </p>
+                                <h5>
+                                    FROM: <?php echo $months["start"].' , '.$eve_details[0]["start_year"];?>
+                                </h5>
+                                <h6>TIME: <?php echo $eve_details[0]["start_time"]; ?></h6>
+                                <h5>
+                                    TO: <?php echo $months["end"].' , '.$eve_details[0]["end_year"]; ?>
+                                </h5>
+                                <h6>TIME: <?php echo $eve_details[0]["end_time"]; ?></h6>
                             </div>
                     </div>
                 </div>

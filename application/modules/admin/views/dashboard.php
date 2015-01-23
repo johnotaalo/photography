@@ -59,7 +59,7 @@
                 <div class="col-lg-3">
                     <div class="widget style1 lazur-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('admin/events')?>">
+                            <a href="<?php echo base_url('events')?>">
                                 <div class="col-xs-4">
                                     <i class="fa fa-calendar fa-5x"></i>
                                 </div>
