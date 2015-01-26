@@ -20,6 +20,7 @@ class login_model extends CI_Model {
         {    
             $user['log'] = TRUE;
             $user['user_id'] = $result[0]['user_id'];
+            $user['usertype'] = $result[0]['usertype'];
         }
 
         else

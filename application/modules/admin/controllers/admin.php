@@ -34,9 +34,12 @@ class admin extends MY_Controller
 	
 	public function email_send()
 	{
+		// echo "Welcome"; die();
+		$id = $this->session->userdata('userid');
 		$recepient = $this->input->post('email_address');
 		$subject = $this->input->post('subject');
 		$message = $this->input->post('message');
+		// echo $id." ".$recepient." ".$subject." ".$message;die();
 		$this->email($id=NULL, $recepient, $subject, $message);
 		redirect('admin');
 	}
