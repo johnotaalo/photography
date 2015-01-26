@@ -10,6 +10,7 @@ class admin_charts extends MY_Controller
 	function __construct()
 	{
 		parent:: __construct();
+		$this->check_login();
 	}
 
 	function admin_pie_chart()

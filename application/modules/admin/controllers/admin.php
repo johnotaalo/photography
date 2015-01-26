@@ -5,14 +5,15 @@
 */
 class admin extends MY_Controller
 {
-	
 	function __construct()
 	{
 		parent::__construct();
 		$this->load->model('admin_model');
+		$this->check_login();
 	}
 	public function index()
 	{
+		
 		$data['error'] = '';
 		$data['message'] = '';
 		$data['events'] = $this->admin_model->get_event_counts();
@@ -31,13 +32,16 @@ class admin extends MY_Controller
 	}
 
 	
-	public function events()
+	public function email_send()
 	{
-		$data['content_page'] = 'admin/events';
-		$this->template->call_admin_template($data);
+		$recepient = $this->input->post('email_address');
+		$subject = $this->input->post('subject');
+		$message = $this->input->post('message');
+		$this->email($id=NULL, $recepient, $subject, $message);
+		redirect('admin');
 	}
-	
 
+	
 }
 
 ?>

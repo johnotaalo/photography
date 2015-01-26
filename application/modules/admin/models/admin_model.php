@@ -22,6 +22,7 @@ class admin_model extends CI_Model
 
 		return $result->result_array();
 	}
+
 	function get_event_counts()
 	{
 		$sql = "SELECT 
@@ -32,6 +33,7 @@ class admin_model extends CI_Model
 
 		return $result->result_array();
 	}
+	
 	
 }
 

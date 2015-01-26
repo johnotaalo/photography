@@ -1,3 +1,9 @@
+<style type="text/css">
+    a {
+        color: white;
+        text-decoration: none;
+    }
+</style>
 <div>
 	<!-- <div class="row wrapper border-bottom white-bg page-heading">
                 <div class="col-lg-10">
@@ -29,7 +35,7 @@
                                     </div>
                                     <div class="col-xs-8 text-right">
                                         <span> Pick of the Day </span>
-                                        <h2 class="font">$ 4,232</h2>
+                                        <!-- <h2 class="font">$ 4,232</h2> -->
                                     </div>
                                 </a>
                             </div>
@@ -38,7 +44,7 @@
                 <div class="col-lg-3">
                     <div class="widget style1 navy-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('admin')?>">
+                            <a href="<?php echo base_url('models/modellist')?>">
                                 <div class="col-xs-4">
                                     <i class="fa fa-group fa-5x"></i>
                                 </div>
@@ -53,7 +59,7 @@
                 <div class="col-lg-3">
                     <div class="widget style1 lazur-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('admin/events')?>">
+                            <a href="<?php echo base_url('events')?>">
                                 <div class="col-xs-4">
                                     <i class="fa fa-calendar fa-5x"></i>
                                 </div>
@@ -74,7 +80,7 @@
                                 </div>
                                 <div class="col-xs-8 text-right">
                                     <span> Fun Stuff </span>
-                                    <h2 class="font">12</h2>
+                                    <!-- <h2 class="font">12</h2> -->
                                 </div>
                             </a>
                         </div>
@@ -88,7 +94,7 @@
                 <div class="col-lg-4">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
-                            <h5>Transactions worldwide</h5>
+                            <h5>Daily ACtivities</h5>
                             <div class="ibox-tools">
                                 <a class="collapse-link">
                                 <i class="fa fa-chevron-up"></i>
@@ -96,44 +102,8 @@
                                 
                             </div>
                         </div>
-                        <div class="ibox-content">
-
-                            
-                                    <table class="table table-hover margin bottom">
-                                        <thead>
-                                            <tr>
-                                                <th style="width: 1%" class="text-center">No.</th>
-                                                <th class="text-center">Amount</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td class="text-center">1</td>
-                                                <td class="text-center"><span class="label label-primary">$483.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">2</td>
-                                                <td class="text-center"><span class="label label-primary">$327.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">3</td>
-                                               <td class="text-center"><span class="label label-warning">$125.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">4</td>
-                                                <td class="text-center"><span class="label label-primary">$344.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">5</td>
-                                                <td class="text-center"><span class="label label-primary">$235.00</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">6</td>
-                                               <td class="text-center"><span class="label label-primary">$100.00</span></td>
-                                                </tr>
-                                        </tbody>
-                                    </table>
-                                
+                       <div class="ibox-content text-center h-200">
+                            <span id="sparkline7"></span>
                         </div>
                     </div>
                 </div>
@@ -220,7 +190,7 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <form method="post" class="form-horizontal" action="">
+                            <form method="post" class="form-horizontal" action="<?php base_url('admin/email_send')?>">
                                 <div class="form-group">
                                     <div class=""><input type="text" class="form-control" name="email_address" id="email_address" placeholder="Email Address"></div>
                                 </div>
@@ -235,7 +205,7 @@
                                     </div>
                                 </div>
                                 <div class="hr-line-dashed"></div>
-                                <button class="btn btn-primary " type="button"><i class="fa fa-send"></i>&nbsp;Send Mail</button>
+                                <button class="btn btn-primary " type="submit"><i class="fa fa-send"></i>&nbsp;Send Mail</button>
                             </form>
                         </div>
                     </div>
