@@ -28,14 +28,9 @@ class events_model extends CI_Model
 		$sql = "SELECT 
 					`event_id`,
 					`event_name`,
-					YEAR(`from`) AS `start_year`,
-					YEAR(`to`) AS `end_year`,
-					MONTH(`from`) AS `start_month`,
-					MONTH(`to`) AS `end_month`,
-					DAY(`from`) AS `start_Date`,
-					DAY(`to`) AS `end_Date`,
-					TIME(`from`) AS `start_time`,
-					TIME(`to`) AS `end_time`,
+					YEAR(`day`) AS `start_year`,
+					MONTH(`day`) AS `start_month`,
+					DAY(`day`) AS `start_Date`,
 					`place`
 				FROM `events`";
 		$result = $this->db->query($sql);
@@ -50,27 +45,15 @@ class events_model extends CI_Model
 		$sql = "SELECT 
 					`ev`.`event_id`,
 					`ev`.`event_name`,
-					YEAR(`ev`.`from`) AS `start_year`,
-					YEAR(`ev`.`to`) AS `end_year`,
-					MONTH(`ev`.`from`) AS `start_month`,
-					MONTH(`ev`.`to`) AS `end_month`,
-					DAY(`ev`.`from`) AS `start_Date`,
-					DAY(`ev`.`to`) AS `end_Date`,
-					TIME(`ev`.`from`) AS `start_time`,
-					TIME(`ev`.`to`) AS `end_time`,
+					YEAR(`ev`.`day`) AS `start_year`,
+					MONTH(`ev`.`day`) AS `start_month`,
+					DAY(`ev`.`day`) AS `start_Date`,
 					`ev`.`place`,
 					`ev`.`Description`,
-					`imgev`.`img_id`,
-					`imgev`.`event_id`,
-					`imgev`.`cover_image`,
-					`img`.`image_id`,
-					`img`.`image_path`
+					`ev`.`cover`
 				FROM `events` `ev`
-				LEFT JOIN `image_event` `imgev`
-					ON `ev`.`event_id` = `imgev`.`event_id`
-				LEFT JOIN `images` `img`
-					ON `img`.`image_id` = `imgev`.`img_id`
-				WHERE `ev`.`event_id` = '$event_id' AND `imgev`.`cover_image` = 1";
+				
+				WHERE `ev`.`event_id` = '$event_id'";
 
 		$result = $this->db->query($sql);
 
@@ -79,9 +62,45 @@ class events_model extends CI_Model
 		return $result;
 	}
 
+	function addevent()
+	{
+		$insert_data = array();
+		if ($this->input->post()) {
+			foreach ($this->input->post() as $key => $value) {
+				$insert_data[$key] = $value;
+			}
+
+			$result = $this->db->insert('events', $insert_data);
+
+			if ($result) {
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+
 	function get_events_images($event_id)
 	{
+		$sql = "SELECT 
+					`ie`.`img_id`,
+					`ie`.`event_id`,
+					`img`.`image_id`,
+					`img`.`image_path`
+				FROM `image_event` `ie`
+				LEFT JOIN `images` `img`
+				ON `ie`.`img_id` = `img`.`image_id` 
+				WHERE `ie`.`event_id` = '$event_id'";
 
+		$result = $this->db->query($sql);
+
+		return $result->result_array();
 	}
 	
 }

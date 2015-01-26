@@ -10,9 +10,15 @@ class events extends MY_Controller
 	{
 		parent:: __construct();
 		$this->load->model('events_model');
+		$this->check_login();
 	}
 
 	public function index()
+	{
+		$this->event_list();
+	}
+
+	public function event_list()
 	{
 		$data['events_count'] = $this->events_model->get_event_counts();
 		$data['content_page'] = 'events/events';
@@ -21,12 +27,68 @@ class events extends MY_Controller
 		$this->template->call_admin_template($data);
 	}
 
+	public function add_event()
+	{
+		$data['content_page'] = 'events/add_event';
+
+		$this->template->call_admin_template($data);
+	}
+
+	public function register_event()
+	{
+		$success = FALSE;
+		$upload_image = 'cover';
+		$upload_path = 'image_uploads/eventsprofiles';
+
+		$uploaded = $this->upload->uploadanimage($upload_image, $upload_path);
+
+		if($uploaded)
+		{
+			$path = $uploaded['path'];
+			$date = $_POST['day'];
+
+			$new_date = strtotime($date);
+			$new_date = date('Y-m-d', $new_date);
+			
+			$_POST['day'] = $new_date;
+			$_POST['cover'] = $path;
+			$returned = $this->events_model->addevent();
+
+			if($returned)
+			{
+				$success = TRUE;
+				$data['notification'] = 'success';
+				$data['message'] = 'Successfully added event <br /> Check it below';
+			}
+			else
+			{
+				$success = FALSE;
+				$data['notfication'] = 'failed';
+				$data['message'] = 'There was a problem adding Event. Please Try Again';
+			}
+		}
+		else
+		{
+			$success = FALSE;
+			$data['notification'] = FALSE;
+			$data['message'] = 'There was a problem while uploading your image. Please try again';
+		}
+
+		if($success){
+			$this->event_list();
+		}
+		else{
+			$data['content_page'] = 'events/add_event';
+			$this->template->call_admin_template($data);
+		}
+	}
+
 	public function event_profile($event_id)
 	{
 		$eve_details = $this->events_model->get_events_profile($event_id);
 		$data['content_page'] = 'events/event_profile';
 		$data['eve_details'] = $this->events_model->get_events_profile($event_id);
-		$data['months'] = $this->start_to_end($eve_details[0]['start_month'], $eve_details[0]['end_month']);
+		$data['months'] = $this->start_to_end($eve_details[0]['start_month']);
 		$data['event_images'] = $this->ss_event_images($event_id);
 		// echo "<pre>";print_r($data);die();
 		$this->template->call_admin_template($data);
@@ -45,14 +107,13 @@ public function ss_all_events()
 				$this->event_details .= '</tr>';
 		} else {
 			foreach ($eve_details as $key => $value) {
-				$months = $this->start_to_end($value['start_month'], $value['end_month']);
+				$month = $this->start_to_end($value['start_month']);
 				$count++;
 				$this->event_details .= '<tr>';
 				$this->event_details .= '<td>'.$count.'</td>';
 				$this->event_details .= '<td>'.$value['event_name'].'</td>';
 				$this->event_details .= '<td>'.$value['place'].'</td>';
-				$this->event_details .= '<td>'.$months['start'].' '.$value['start_Date'].' , '.$value['start_year'].' , '.$value['start_time'].'</td>';
-				$this->event_details .= '<td>'.$months['end'].' '.$value['end_Date'].' , '.$value['end_year'].' , '.$value['end_time'].'</td>';
+				$this->event_details .= '<td>'.$month.' '.$value['start_Date'].' , '.$value['start_year'].'</td>';
 				$this->event_details .= '<td><a href = "'.base_url().'events/event_profile/'.$value['event_id'].'">View event</a></td>';
 				$this->event_details .= '</tr>';
 			}
@@ -63,11 +124,34 @@ public function ss_all_events()
 		return $this->event_details;
 	}
 
-	private function ss_event_images($event_id)
+	function add_images($event_id)
 	{
-		$this->events_model->get_events_images($event_id);
+		$data['content_page'] = 'events/add_images';
+		$this->template->call_admin_template($data);
 	}
 
+	private function ss_event_images($event_id)
+	{
+		$images = $this->events_model->get_events_images($event_id);
+		// echo "<pre>";print_r($images);die();
+
+		if ($images) {
+			foreach ($images as $key => $value) {
+				// echo "<pre>";print_r($value['image_path']);die();
+				$path = $value['image_path'];
+                $load_images = '<a class="fancybox" href="'.$value['image_path'].'" title="Picture 1">
+		                            <img alt="image"  src="'.$path.'" />
+		                        </a>';
+			}
+		} else {
+			$load_images = '<div class = "empty"><center><h2>No Images of this event uploaded yet. </h2><a class = "btn btn-primary btn-outline" href = "'.base_url().'events/add_images/'.$event_id.'">Add Images here</a></center>
+			</div>';
+		}
+		
+		// echo "<pre>";print_r($load_div);die();
+		
+        return $load_images;
+	}
 
 	
 	public function upload_file()
@@ -197,7 +281,7 @@ public function ss_all_events()
 
 	}
 
-	public function start_to_end($begin, $finish)
+	public function start_to_end($begin)
 	{
 
 		//If statement to convert the number to names of the months for start
@@ -205,16 +289,7 @@ public function ss_all_events()
 					else if($begin==6) {$start = 'June'; }else if($begin==7) {$start = 'July'; }else if($begin==8) {$start = 'August'; }else if($begin==9) {$start = 'September'; }
 						else if($begin==10) {$start = 'October'; }else if($begin==11) {$start = 'November'; }else if($begin==12) {$start = 'December'; }
 
-				//If statement to convert the number to names of the months for end
-				if ($finish==1) {$end = 'January'; }else if($finish==2) {$end = 'February'; } else if($finish==3) {$end = 'March'; }else if($finish==4) {$end = 'April'; }else if($finish==5) {$end = 'May'; }
-					else if($finish==6) {$end = 'June'; }else if($finish==7) {$end = 'July'; }else if($finish==8) {$end = 'August'; }else if($finish==9) {$end = 'September'; }
-						else if($finish==10) {$end = 'October'; }else if($finish==11) {$end = 'November'; }else if($finish==12) {$end = 'December'; }
-
-			$duration = array(
-								'start' => $start,
-								'end'	=> $end
-								);	
-			return $duration;
+			return $start;
 	}
 
 }

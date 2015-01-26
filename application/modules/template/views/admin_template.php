@@ -82,10 +82,10 @@
                         <a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Calendar</span> </a>
                     </li>
                    <li>
-                        <a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Events</span> </a>
+                        <a href="<?php echo base_url('events')?>"><i class="fa fa-calendar"></i> <span class="nav-label">Events</span> </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-lock"></i> <span class="nav-label">Log Out</span> </a>
+                        <a href="<?php echo base_url();?>admin/logout"><i class="fa fa-lock"></i> <span class="nav-label">Log Out</span> </a>
                     </li>
                     
                 </ul>
@@ -113,7 +113,7 @@
 
 
                 <li>
-                    <a href="login.html">
+                    <a href="<?php echo base_url();?>admin/logout">
                         <i class="fa fa-sign-out"></i> Log out
                     </a>
                 </li>

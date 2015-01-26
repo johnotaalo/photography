@@ -9,7 +9,7 @@
                         </div>
                         <div>
                             <div class="ibox-content no-padding border-left-right">
-                                <img alt="image" class="img-responsive" src="<?php echo $eve_details[0]['image_path']; ?>">
+                                <img alt="image" class="img-responsive" src="<?php echo $eve_details[0]['cover']; ?>">
                             </div>
                             <div class="ibox-content profile-content">
                                 <h4><strong><?php echo $eve_details[0]["event_name"]; ?></strong></h4>
@@ -18,363 +18,36 @@
                                     <?php echo $eve_details[0]["Description"];?>
                                 </p>
                                 <h5>
-                                    FROM: <?php echo $months["start"].' , '.$eve_details[0]["start_year"];?>
+                                    FROM: <?php echo $months.' , '.$eve_details[0]["start_year"];?>
                                 </h5>
-                                <h6>TIME: <?php echo $eve_details[0]["start_time"]; ?></h6>
-                                <h5>
-                                    TO: <?php echo $months["end"].' , '.$eve_details[0]["end_year"]; ?>
-                                </h5>
-                                <h6>TIME: <?php echo $eve_details[0]["end_time"]; ?></h6>
+                                <div>
+                                <button class = "btn btn-success" type="button"><a href="<?php echo base_url(); ?>events/add_images/<?php echo $eve_details[0]['event_id']; ?>" style="color:white;">Add Images</a></button>
                             </div>
+                            </div>
+                            
                     </div>
                 </div>
                     </div>
                 <div class="col-lg-8 animated fadeInRight">
                     <div class="row">
+                 
                         <div class="col-lg-12">
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-file"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Document_2014.doc
-                                            <br/>
-                                            <small>Added: Jan 11, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/p1.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            Italy street.jpg
-                                            <br/>
-                                            <small>Added: Jan 6, 2014</small>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/p2.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            My feel.png
-                                            <br/>
-                                            <small>Added: Jan 7, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-music"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Michal Jackson.mp3
-                                            <br/>
-                                            <small>Added: Jan 22, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/p3.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            Document_2014.doc
-                                            <br/>
-                                            <small>Added: Fab 11, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="img-responsive fa fa-film"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Monica's birthday.mpg4
-                                            <br/>
-                                            <small>Added: Fab 18, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <a href="#">
-                                    <div class="file">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-bar-chart-o"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Annual report 2014.xls
-                                            <br/>
-                                            <small>Added: Fab 22, 2014</small>
-                                        </div>
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Basic Table <small>Images</small></h5>
+                                    <div class="ibox-tools">
+                                        <a class="collapse-link">
+                                            <i class="fa fa-chevron-up"></i>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-file"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Document_2014.doc
-                                            <br/>
-                                            <small>Added: Jan 11, 2014</small>
-                                        </div>
-                                    </a>
                                 </div>
+                                <div class="ibox-content">
 
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/p1.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            Italy street.jpg
-                                            <br/>
-                                            <small>Added: Jan 6, 2014</small>
-                                        </div>
-                                    </a>
-
+                                    <?php
+                                        echo $event_images;
+                                    ?>
                                 </div>
                             </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/p2.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            My feel.png
-                                            <br/>
-                                            <small>Added: Jan 7, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-music"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Michal Jackson.mp3
-                                            <br/>
-                                            <small>Added: Jan 22, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/p3.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            Document_2014.doc
-                                            <br/>
-                                            <small>Added: Fab 11, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="img-responsive fa fa-film"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Monica's birthday.mpg4
-                                            <br/>
-                                            <small>Added: Fab 18, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <a href="#">
-                                    <div class="file">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-bar-chart-o"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Annual report 2014.xls
-                                            <br/>
-                                            <small>Added: Fab 22, 2014</small>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-file"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Document_2014.doc
-                                            <br/>
-                                            <small>Added: Jan 11, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/p1.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            Italy street.jpg
-                                            <br/>
-                                            <small>Added: Jan 6, 2014</small>
-                                        </div>
-                                    </a>
-
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/p2.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            My feel.png
-                                            <br/>
-                                            <small>Added: Jan 7, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-music"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Michal Jackson.mp3
-                                            <br/>
-                                            <small>Added: Jan 22, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="image">
-                                            <img alt="image" class="img-responsive" src="<?php echo base_url(); ?>assets/admin/img/p3.jpg">
-                                        </div>
-                                        <div class="file-name">
-                                            Document_2014.doc
-                                            <br/>
-                                            <small>Added: Fab 11, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <div class="file">
-                                    <a href="#">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="img-responsive fa fa-film"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Monica's birthday.mpg4
-                                            <br/>
-                                            <small>Added: Fab 18, 2014</small>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="file-box">
-                                <a href="#">
-                                    <div class="file">
-                                        <span class="corner"></span>
-
-                                        <div class="icon">
-                                            <i class="fa fa-bar-chart-o"></i>
-                                        </div>
-                                        <div class="file-name">
-                                            Annual report 2014.xls
-                                            <br/>
-                                            <small>Added: Fab 22, 2014</small>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
                         </div>
                     </div>
                 </div>

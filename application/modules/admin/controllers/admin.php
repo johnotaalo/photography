@@ -9,9 +9,11 @@ class admin extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('admin_model');
+		$this->check_login();
 	}
 	public function index()
 	{
+		
 		$data['error'] = '';
 		$data['message'] = '';
 		$data['events'] = $this->admin_model->get_event_counts();

@@ -10,6 +10,7 @@ class Models extends MY_Controller
 	{
 		parent::__construct();
 		$this->load->model('m_models');
+		$this->check_login();
 	}
 
 	public function getlatestaddition()

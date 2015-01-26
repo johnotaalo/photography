@@ -4,9 +4,9 @@
                 <div class="col-lg-3">
                     <div class="widget style1 red-bg ">
                             <div class="row">
-                                <a href="<?php echo base_url('admin/events')?>">
+                                <a href="<?php echo base_url('events/add_event')?>">
                                     <div class="col-xs-4 text-center">
-                                        <i class="fa fa-trophy fa-5x"></i>
+                                        <i class="fa fa-plus fa-5x"></i>
                                     </div>
                                     <div class="col-xs-8 text-right">
                                         <span> Add Event </span>
@@ -19,7 +19,7 @@
                 <div class="col-lg-3">
                     <div class="widget style1 lazur-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('admin/events')?>">
+                            <a href="<?php echo base_url('events')?>">
                                 <div class="col-xs-4">
                                     <!-- <i class="fa fa-calendar fa-5x"></i> -->
                                 </div>
@@ -34,7 +34,7 @@
                 <div class="col-lg-3">
                     <div class="widget style1 navy-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('admin/events')?>">
+                            <a href="<?php echo base_url('events')?>">
                                 <div class="col-xs-4">
                                     <!-- <i class="fa fa-group fa-5x"></i> -->
                                 </div>
@@ -50,7 +50,7 @@
                 <div class="col-lg-3">
                     <div class="widget style1 yellow-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('admin/events')?>">
+                            <a href="<?php echo base_url('events')?>">
                                 <div class="col-xs-4">
                                     <!-- <i class="fa fa-child fa-5x"></i> -->
                                 </div>
@@ -84,8 +84,7 @@
                         <th>#</th>
                         <th>Event Name</th>
                         <th>Place occured</th>
-                        <th>From</th>
-                        <th>To</th>
+                        <th>Date</th>
                         <th>Action</th>
                     </tr>
                     </thead>
@@ -99,25 +98,5 @@
             </div>
             </div>
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <form action="<?php echo base_url();?>events/upload_file" id="dz" class="dropzone"></form>
-                </div>
-                
-            </div>
     </div>
 </div>
-<script>
-
-            Dropzone.options.dz = {
-            paramName: "file", 
-            maxFilesize: 10, 
-            accept: function(file, done) {
-                if ((file.name.substring((file.name.length-4),file.name.length) != ".jpg")&&(file.name.substring((file.name.length-4),file.name.length) != ".jpeg")&&(file.name.substring((file.name.length-4),file.name.length) != ".JPG")&&(file.name.substring((file.name.length-4),file.name.length) != ".JPEG")) {
-                    done("Wrong File Type");
-                }
-                else { done(); }
-            }
-            };
-
-    </script>

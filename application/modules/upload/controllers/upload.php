@@ -12,6 +12,7 @@ class Upload extends MY_Controller
 		$data['error'] = '';
 		$data['message'] = '';
 		$this->load->view('upload', $data);
+		$this->check_login();
 	}
 
 	function upload_image()
@@ -107,7 +108,8 @@ class Upload extends MY_Controller
 			$message['type'] = "success";
 			$message['path'] = base_url() . $upload_path .'/'.$upload_data['file_name'];
 		}
-
+		echo "<pre>";print_r($message);die()
+		;
 		return $message;
 	}
 }

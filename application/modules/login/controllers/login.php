@@ -14,6 +14,7 @@ class Login extends MY_Controller
 
 	public function index()
 	{
+		$this->logout();
 		$this->load->view("login_view");
 	}
 
@@ -44,6 +45,20 @@ class Login extends MY_Controller
 		}
 		
 	}
+
+	function check_login()
+	{
+		$user_id = $this->session->userdata('userid');
+		$logged_in = $this->session->userdata('logged_in');
+
+		if ($logged_in == TRUE) {
+			# code...
+		} else {
+			redirect(base_url('login'));
+		}
+		
+	}
+
 	function signup($value=NULL)
 	{
 		if ($value==NULL) {

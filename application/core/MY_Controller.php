@@ -11,6 +11,7 @@ class MY_Controller extends MX_Controller
 		parent::__construct();
 		$this->load->module('upload');
 		$this->load->module('template');
+        $this->load->module('login');
 	}
 
 	public function email($id=NULL, $recepient, $subject, $message)  
@@ -45,6 +46,19 @@ class MY_Controller extends MX_Controller
             {
                 show_error($this->email->print_debugger());
             }
+        
+    }
+
+    function check_login()
+    {
+        $user_id = $this->session->userdata('userid');
+        $logged_in = $this->session->userdata('logged_in');
+
+        if ($logged_in == TRUE) {
+            echo "Welcome back now again";
+        } else {
+            redirect(base_url('login'));
+        }
         
     }
 
