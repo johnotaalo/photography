@@ -12,7 +12,7 @@ class m_models extends CI_Model
 	}
 	function deactivatemodel($model_id)
 	{
-		$sql = "UPDATE model SET active = 0 WHERE model_id = " . $model_id;
+		$sql = "UPDATE models SET active = 0 WHERE model_id = " . $model_id;
 		$query = $this->db->query($sql);
 
 		if ($query) {
@@ -83,7 +83,7 @@ class m_models extends CI_Model
 	function getmodelbyid($model_id)
 	{
 		$model_data = array();
-		$sql = "SELECT m.*, COUNT(im.img_id) as image counts FROM models m 
+		$sql = "SELECT m.*, COUNT(im.img_id) as imagecounts FROM models m 
 		JOIN image_model im ON im.model_id = m.model_id
 		WHERE m.model_id = " . $model_id. " LIMIT 1";
 		$query = $this->db->query($sql);
@@ -146,5 +146,68 @@ class m_models extends CI_Model
 		$result = $query->row();
 
 		return $result->models;
+	}
+
+	function activatemodel($model_id)
+	{
+		$sql = "UPDATE models SET active = 1 WHERE model_id = ".$model_id;
+		$query = $this->db->query($sql);
+
+		if ($query) {
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function updatemodel($model_id)
+	{
+		$update_data = $this->input->post();
+
+		if ($update_data) {
+			$this->db->where('model_id', $model_id);
+			$this->db->update('models', $update_data); 
+
+			return true;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function getmodelimages($model_id)
+	{
+		$sql = "SELECT i.* FROM images i JOIN image_model im ON im.img_id = i.image_id
+		WHERE im.model_id = " . $model_id ." ORDER BY i.date_uploaded DESC";
+
+		$query = $this->db->query($sql);
+		$result = $query->result_array();
+
+		if ($result) {
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
+	}
+
+	function model_image($model_id, $image_id)
+	{
+		$insert_data = array('img_id' => $image_id, 'model_id' => $model_id);
+
+		$insertion = $this->db->insert('image_model', $insert_data);
+
+		if($insertion)
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 }
