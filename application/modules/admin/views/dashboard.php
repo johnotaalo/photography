@@ -190,7 +190,8 @@
                             </div>
                         </div>
                         <div class="ibox-content">
-                            <form method="post" class="form-horizontal" action="<?php base_url('admin/email_send')?>">
+                            <?php echo form_open(base_url('admin/email_send'));?>
+                            
                                 <div class="form-group">
                                     <div class=""><input type="text" class="form-control" name="email_address" id="email_address" placeholder="Email Address"></div>
                                 </div>

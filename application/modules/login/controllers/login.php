@@ -28,17 +28,21 @@ class Login extends MY_Controller
 		
 		if ($verification['log'] == TRUE) {
 			$userid = $verification['user_id'];
+			$usertype = $verification['usertype'];
 
 			$data = array(
 				'logged_in' => TRUE,
-				'userid' => $userid
+				'userid' => $userid,
+				'usertype' => $usertype
 			);
 
 			$this->session->set_userdata($data);
 
 			$session_details = $this->session->all_userdata();
-			echo "<pre>";print_r($session_details);die();
-			// redirect(base_url() . 'upload');
+			// echo "<pre>";print_r($session_details);die();
+			$usertype = $this->session->userdata('usertype');
+			
+			redirect(base_url().$usertype);
 		} else {
 			echo "The credentials you have provided are erroneous";
 			// redirect(base_url().'login');
@@ -51,11 +55,9 @@ class Login extends MY_Controller
 		$user_id = $this->session->userdata('userid');
 		$logged_in = $this->session->userdata('logged_in');
 
-		if ($logged_in == TRUE) {
-			# code...
-		} else {
+		if ($logged_in == FALSE) {
 			redirect(base_url('login'));
-		}
+		} 
 		
 	}
 

@@ -41,7 +41,7 @@ class MY_Controller extends MX_Controller
         if($this->email->send())
             {   
 
-               $this->m_admin->send_mail();
+               // $this->m_admin->send_mail();
             } else 
             {
                 show_error($this->email->print_debugger());
