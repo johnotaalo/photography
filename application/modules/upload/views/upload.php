@@ -79,7 +79,18 @@
 
 <script type="text/javascript">
 	$(document).ready(function(){
-		
+		object = $(document).find('div.sub-item');
+		$('.sub-item').click(function(){
+			id = $(this).attr('data-id');
+			type = $(this).attr('data-item');
+
+			console.log($('#message-body'));
+			$('input[name="item_id"]').val(id);
+			$('input[name="item"]').val(type);
+
+			$('#information h4').html('Uploading to: ' + type);
+			$('#messageModal').modal('hide');
+		});
 	});
 
 
@@ -107,11 +118,16 @@
 		id = $(this).attr('data-id');
 		type = $(this).attr('data-item');
 
-		console.log(type);
+		console.log($('#message-body'));
 		$('input[name="item_id"]').val(id);
 		$('input[name="item"]').val(type);
 
 		$('#information h4').html('Uploading to: ' + type);
 		$('#messageModal').modal('hide');
 	});
+
+	function passDataAttribute(this)
+	{
+		console.log(this);
+	}
 </script>

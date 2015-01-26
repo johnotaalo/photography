@@ -132,7 +132,7 @@ class Upload extends MY_Controller
 					$response .= '<div class = "row">';
 					$response .= '<div class = "col-md-12">';
 					foreach ($active_categories as $key => $value) {						
-						$response.=	'<div class = "col-md-3 sub-item" style = "background-image: url('.$value['cover_image'].')" data-id = "'.$value['category_id'].'" data-item = "categories"></div>';					
+						$response.=	'<div class = "col-md-3 sub-item" onclick = "passDataAttribute(this);" style = "background-image: url('.$value['cover_image'].')" data-id = "'.$value['category_id'].'" data-item = "categories"></div>';					
 					}
 					$response .= '</div>';
 					$response .= '</div>';
