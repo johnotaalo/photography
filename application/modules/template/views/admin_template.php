@@ -23,6 +23,7 @@
     <link href="<?php echo base_url(); ?>assets/admin/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/style.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/admin/js/plugins/fancybox/jquery.fancybox.css" rel="stylesheet">
 
      <!-- Data Tables -->
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
@@ -30,9 +31,10 @@
 
     <!-- Drop Zone-->
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dropzone/dropzone.css" type="text/css" rel="stylesheet" />
-
-
-
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dropzone/basic.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dropzone/dropzone.css" rel="stylesheet">
+    <link href = "<?php echo base_url(); ?>assets/custom/css/custom.css" rel = "stylesheet">
+     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/chosen/chosen.css" rel="stylesheet">
      <style type="text/css">
     /*a {
         text-decoration: none;
@@ -67,10 +69,10 @@
                         <a href="<?php echo base_url('admin');?>"><i class="fa fa-dashboard"></i> <span class="nav-label">Home</span> </a>
                     </li>
                     <li>
-                        <a href=""><i class="fa fa-align-right"></i> <span class="nav-label">Categories</span> </a>
+                        <a href="<?php echo base_url(); ?>categories"><i class="fa fa-align-right"></i> <span class="nav-label">Categories</span> </a>
                     </li>
                    <li>
-                        <a href="#"><i class="fa fa-upload"></i> <span class="nav-label">Uploads</span> </a>
+                        <a href="<?php echo base_url(); ?>upload"><i class="fa fa-upload"></i> <span class="nav-label">Uploads</span> </a>
                     </li>
                     <li>
                         <a href="<?php echo base_url();?>models/modellist"><i class="fa fa-user"></i> <span class="nav-label">Models</span> </a>
@@ -85,7 +87,7 @@
                         <a href="<?php echo base_url('events')?>"><i class="fa fa-calendar"></i> <span class="nav-label">Events</span> </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url();?>admin/logout"><i class="fa fa-lock"></i> <span class="nav-label">Log Out</span> </a>
+                        <a href="<?php echo base_url();?>login/logout"><i class="fa fa-lock"></i> <span class="nav-label">Log Out</span> </a>
                     </li>
                     
                 </ul>
@@ -113,7 +115,7 @@
 
 
                 <li>
-                    <a href="<?php echo base_url();?>admin/logout">
+                    <a href="<?php echo base_url();?>login/logout">
                         <i class="fa fa-sign-out"></i> Log out
                     </a>
                 </li>
@@ -122,11 +124,12 @@
         </nav>
         </div>
         <!--Content Page begins here-->
-        <?php
-            $this->load->view($content_page);
-        ?>
+            <?php
+                $this->load->view($content_page);
+            ?>
         <!--End of content page-->
 
+        <?php $this->load->view('modals/modal');?>
 
     <!-- Mainly scripts -->
     
@@ -171,6 +174,35 @@
     <!-- // <scri/pt src="<?php echo base_url(); ?>assets/admin/js/demo/chartjs-demo.js"></script> -->
 
     <!-- Data Tables -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/fancybox/jquery.fancybox.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dropzone/dropzone.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/chosen/chosen.jquery.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/select2.min.js" type="text/javascript"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            $('.fancybox').fancybox({
+                openEffect  : 'none',
+                closeEffect : 'none'
+            });
+
+            $('#a_button').click(function(){
+                $('#modal_form').submit();
+            });
+
+            var config = {
+                '.chosen-select'           : {},
+                '.chosen-select-deselect'  : {allow_single_deselect:true},
+                '.chosen-select-no-single' : {disable_search_threshold:10},
+                '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+                '.chosen-select-width'     : {width:"95%"}
+            }
+            for (var selector in config) {
+                $(selector).chosen(config[selector]);
+            }
+        });
+    </script>
     
 
 

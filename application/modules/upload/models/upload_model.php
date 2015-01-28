@@ -6,7 +6,7 @@ class Upload_model extends MY_Model{
 		parent:: __construct();
 	}
 
-	function addimages($path, $size_id, $name, $description)
+	function addimages($path, $size_id, $name, $description = NULL)
 	{
 		$data = array(
 			'image_path' => $path,

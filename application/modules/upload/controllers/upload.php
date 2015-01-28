@@ -5,6 +5,7 @@ class Upload extends MY_Controller
 	function __construct(){
 		parent::__construct();
 		$this->load->model('upload_model');
+		$this->check_login();
 	}
 
 	function index()
@@ -12,7 +13,9 @@ class Upload extends MY_Controller
 		$data['error'] = '';
 		$data['message'] = '';
 		$this->load->view('upload', $data);
-		$this->check_login();
+		$data['content_page'] = 'upload/upload';
+		$this->template->call_admin_template($data);
+
 	}
 
 	function upload_image()
@@ -111,5 +114,41 @@ class Upload extends MY_Controller
 		echo "<pre>";print_r($message);die()
 		;
 		return $message;
+	}
+
+	function getimagedimensions($image)
+	{
+		list($width,$height, $type, $attr) = getimagesize($image);
+
+		$image_dimensions = array('width' => $width, 'height' => $height, 'dimensions' => $width . 'x' . $height);
+		return $image_dimensions;
+	}
+
+	function get_display_div($type)
+	{
+		$response = '';
+		switch ($type) {
+			case 'categories':
+				$this->load->model('categories/m_categories');
+				$active_categories = $this->m_categories->get_active_categories();
+
+				if ($active_categories) {
+					$response .= '<div class = "row">';
+					$response .= '<div class = "col-md-12">';
+					foreach ($active_categories as $key => $value) {						
+						$response.=	'<div class = "col-md-3 sub-item" onclick = "passDataAttribute(this);" style = "background-image: url('.$value['cover_image'].')" data-id = "'.$value['category_id'].'" data-item = "categories"></div>';					
+					}
+					$response .= '</div>';
+					$response .= '</div>';
+				}
+
+				break;
+			
+			default:
+				# code...
+				break;
+		}
+
+		echo $response;
 	}
 }
