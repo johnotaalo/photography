@@ -75,6 +75,14 @@ class Login extends MY_Controller
 	{
 		$this->session->sess_destroy();
 	}
+
+	function user_details()
+	{
+		// echo $user_id;die;
+		// echo "There is an id";die;
+		$userdetails = $this->login_model->get_user_details();
+		return $userdetails;
+	}
 }
 
 ?>

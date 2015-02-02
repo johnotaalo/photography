@@ -3,6 +3,8 @@
 /**
 * 
 */
+
+// error_reporting(0);
 class MY_Controller extends MX_Controller
 {
 	
@@ -101,7 +103,6 @@ class MY_Controller extends MX_Controller
         $logged_in = $this->session->userdata('logged_in');
 
         if ($logged_in == TRUE) {
-            echo "Welcome back now again";
         } else {
             redirect(base_url('login'));
         }

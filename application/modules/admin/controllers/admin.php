@@ -13,7 +13,7 @@ class admin extends MY_Controller
 	}
 	public function index()
 	{
-		
+		$data['categories'] = $this->getallcategories();
 		$data['error'] = '';
 		$data['message'] = '';
 		$data['events'] = $this->admin_model->get_event_counts();
@@ -42,6 +42,21 @@ class admin extends MY_Controller
 		// echo $id." ".$recepient." ".$subject." ".$message;die();
 		$this->email($id=NULL, $recepient, $subject, $message);
 		redirect('admin');
+	}
+
+	public function getallcategories()
+	{
+		$categories_dropdown = '';
+		$query = $this->db->get('categories');
+		$result = $query->result_array();
+
+		if ($result) {
+			foreach ($result as $key => $value) {
+				$categories_dropdown .= '<option value = "'.$value['category_id'].'">'.$value['category_name'].'</option>';
+			}
+		}
+
+		return $categories_dropdown;
 	}
 
 	

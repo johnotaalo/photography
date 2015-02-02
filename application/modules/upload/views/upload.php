@@ -91,6 +91,18 @@
 			$('#information h4').html('Uploading to: ' + type);
 			$('#messageModal').modal('hide');
 		});
+
+		$('.sub-item').click(function(){
+			id = $(this).attr('data-id');
+			type = $(this).attr('data-item');
+
+			console.log($('#message-body'));
+			$('input[name="item_id"]').val(id);
+			$('input[name="item"]').val(type);
+
+			$('#information h4').html('Uploading to: ' + type);
+			$('#messageModal').modal('hide');
+		});
 	});
 
 
@@ -113,21 +125,14 @@
 		$('#messageModal').modal('show');
 	});
 
-
-	$('.sub-item').click(function(){
-		id = $(this).attr('data-id');
-		type = $(this).attr('data-item');
-
-		console.log($('#message-body'));
+	function passDataAttribute(that)
+	{
+		id = $(that).attr('data-id');
+		type = $(that).attr('data-item');
 		$('input[name="item_id"]').val(id);
 		$('input[name="item"]').val(type);
 
 		$('#information h4').html('Uploading to: ' + type);
 		$('#messageModal').modal('hide');
-	});
-
-	function passDataAttribute(this)
-	{
-		console.log(this);
 	}
 </script>

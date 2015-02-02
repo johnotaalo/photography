@@ -33,6 +33,9 @@
     <link href = "<?php echo base_url(); ?>assets/custom/css/custom.css" rel = "stylesheet">
      <link href="<?php echo base_url(); ?>assets/admin/css/plugins/chosen/chosen.css" rel="stylesheet">
 
+     <script type="text/javascript">
+        base_url = '<?php echo base_url(); ?>';
+     </script>
      <style type="text/css">
     /*a {
         text-decoration: none;
@@ -50,6 +53,12 @@
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.bootstrap.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dataTables/dataTables.responsive.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dropzone/dropzone.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/chartJs/Chart.min.js"></script>
+    <!-- Flot 
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/flot/jquery.flot.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/flot/jquery.flot.tooltip.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/flot/jquery.flot.resize.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/flot/jquery.flot.pie.js"></script>-->
 
 </head>
 
@@ -85,7 +94,7 @@
                         <a href="<?php echo base_url('events')?>"><i class="fa fa-calendar"></i> <span class="nav-label">Events</span> </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url();?>admin/logout"><i class="fa fa-lock"></i> <span class="nav-label">Log Out</span> </a>
+                        <a href="<?php echo base_url();?>login/logout"><i class="fa fa-lock"></i> <span class="nav-label">Log Out</span> </a>
                     </li>
                     
                 </ul>
@@ -168,12 +177,11 @@
     <script src="<?php echo base_url(); ?>assets/admin/js/demo/sparkline-demo.js"></script>
 
      <!-- ChartJS-->
-    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/chartJs/Chart.min.js"></script>
+    
     <!-- // <scri/pt src="<?php echo base_url(); ?>assets/admin/js/demo/chartjs-demo.js"></script> -->
 
     <!-- Data Tables -->
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/fancybox/jquery.fancybox.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dropzone/dropzone.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/chosen/chosen.jquery.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/select2.min.js" type="text/javascript"></script>
 
@@ -189,6 +197,34 @@
                 $('#modal_form').submit();
             });
 
+            Dropzone.options.myAwesomeDropzone = {
+                autoProcessQueue: false,
+                uploadMultiple: true,
+                parallelUploads: 100,
+                maxFiles: 100,
+
+                // Dropzone settings
+                init: function() {
+                    var myDropzone = this;
+
+                    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        myDropzone.processQueue();
+                    });
+                    this.on("sendingmultiple", function() {
+                        console.log('Uploading Files. Please wait...');
+                    });
+                    this.on("successmultiple", function(files, response) {
+                        location.reload();
+                    });
+                    this.on("errormultiple", function(files, response) {
+                        alert(response);
+                    });
+                }
+
+            }
+
             var config = {
                 '.chosen-select'           : {},
                 '.chosen-select-deselect'  : {allow_single_deselect:true},
@@ -201,8 +237,6 @@
             }
         });
     </script>
-    
-
 
 </body>
 </html>

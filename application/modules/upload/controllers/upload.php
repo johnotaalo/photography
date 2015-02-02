@@ -147,4 +147,57 @@ class Upload extends MY_Controller
 
 		echo $response;
 	}
+
+	function quickupload()
+	{
+		$message = $this->uploadanimage('upload_image', 'image_uploads');
+		$response = array();
+
+		if($message['type'] == 'success')
+		{
+			$name = $this->input->post('upload_name');
+			$data = array('upload_data' => $this->upload->data());
+			$width = $data['upload_data']['image_width'];
+			$height = $data['upload_data']['image_height'];
+			$dimensions = $width . 'x' . $height;
+			$exists = $this->checkifsizeexists($dimensions);
+
+			if($exists)
+			{
+				$size_id = $exists['size_id'];
+			}
+			else
+			{
+				$size_id = $this->createnewsize($dimensions);
+			}
+
+			$path = $message['path'];
+			$description = $this->input->post('upload_description');
+			$correct_upload = $this->upload_model->addimages($path, $size_id, $name, $description);
+
+			$image_id = mysql_insert_id();
+			$category_id = $this->input->post('upload_to');
+			$insertdata = array('img_id' => $image_id, 'category_id' => $category_id);
+
+			$query = $this->db->insert('image_catetgory', $insertdata);
+
+			if($query)
+			{
+				$response['type'] = 'Success';
+				$response['message'] = 'Successfully Uploaded Photo to categories';
+			}
+			else
+			{
+				$response['type'] = 'Error';
+				$response['message'] = 'There was a problem uploading your image. Please contact your Administrator';
+			}
+		}
+		else
+		{
+			$response['type'] = 'Error';
+			$response['message'] = 'There was a problem uploading your image. Please contact your Administrator';
+		}
+
+		echo json_encode($response);
+	}
 }

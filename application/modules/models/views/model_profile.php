@@ -114,33 +114,7 @@
 		details_height = $('#details_section').height();
 		$('#pictures_section').height(details_height);
 		get_model_images();
-		Dropzone.options.myAwesomeDropzone = {
-                autoProcessQueue: false,
-                uploadMultiple: true,
-                parallelUploads: 100,
-                maxFiles: 100,
-
-                // Dropzone settings
-                init: function() {
-                    var myDropzone = this;
-
-                    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-                        e.preventDefault();
-                        e.stopPropagation();
-                        myDropzone.processQueue();
-                    });
-                    this.on("sendingmultiple", function() {
-                    	console.log('Uploading Files. Please wait...');
-                    });
-                    this.on("successmultiple", function(files, response) {
-                    	location.reload();
-                    });
-                    this.on("errormultiple", function(files, response) {
-                    	alert(response);
-                    });
-                }
-
-            }
+		
 		$('.upload_caller').click(function(){
 			$('#all_pictures').hide();
 			$('#uploader').show();
