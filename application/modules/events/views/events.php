@@ -1,16 +1,21 @@
+<style type="text/css">
+    #widgets {
+        color: white;
+    }
+</style>
 <div>
 	<div class="wrapper wrapper-content">
          <div class="row">
                 <div class="col-lg-3">
                     <div class="widget style1 red-bg ">
                             <div class="row">
-                                <a href="<?php echo base_url('events/add_event')?>">
+                                <a href="<?php echo base_url('events/add_event')?>" id="widgets">
                                     <div class="col-xs-4 text-center">
                                         <i class="fa fa-plus fa-5x"></i>
                                     </div>
                                     <div class="col-xs-8 text-right">
-                                        <span> Add Event </span>
-                                        <h2 class="font">0</h2>
+                                        <span>Add Event: </span>
+                                        <h2 class="font"></h2>
                                     </div>
                                 </a>
                             </div>
@@ -19,7 +24,7 @@
                 <div class="col-lg-3">
                     <div class="widget style1 lazur-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('events')?>">
+                            <a href="<?php echo base_url('events')?>" id="widgets">
                                 <div class="col-xs-4">
                                     <!-- <i class="fa fa-calendar fa-5x"></i> -->
                                 </div>
@@ -34,12 +39,12 @@
                 <div class="col-lg-3">
                     <div class="widget style1 navy-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('events')?>">
+                            <a href="<?php echo base_url('events')?>" id="widgets">
                                 <div class="col-xs-4">
-                                    <!-- <i class="fa fa-group fa-5x"></i> -->
+                                    <i class="fa fa-arrow-up fa-5x"></i>
                                 </div>
                                 <div class="col-xs-8 text-right">
-                                    <span> Highest Photos in an event</span>
+                                    <span> Highest event Photos</span>
                                     <h2 class="font">0</h2>
                                 </div>
                             </a>
@@ -50,12 +55,12 @@
                 <div class="col-lg-3">
                     <div class="widget style1 yellow-bg">
                         <div class="row">
-                            <a href="<?php echo base_url('events')?>">
+                            <a href="<?php echo base_url('events')?>" id="widgets">
                                 <div class="col-xs-4">
-                                    <!-- <i class="fa fa-child fa-5x"></i> -->
+                                    <i class="fa fa-arrow-down fa-5x"></i>
                                 </div>
                                 <div class="col-xs-8 text-right">
-                                    <span> Lowest Number of events </span>
+                                    <span> Toggle View to: </span>
                                     <h2 class="font">0</h2>
                                 </div>
                             </a>

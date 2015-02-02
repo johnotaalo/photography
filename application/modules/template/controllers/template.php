@@ -25,4 +25,8 @@ class Template extends MY_Controller
 	{
 		$this->user_details = $this->template_model->get_user_details();
 	}
+	function call_login_template($data = NULL)
+	{
+		$this->load->view('auth_template', $data);
+	}
 }
