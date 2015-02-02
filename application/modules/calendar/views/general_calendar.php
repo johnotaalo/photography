@@ -135,25 +135,25 @@
                     start: new Date(y, m, d+4, 16, 0),
                     allDay: false
                 },
+                // {
+                //     title: 'Meeting for Graduation',
+                //     start: new Date(y, m, d, 10, 30),
+                //     allDay: false
+                // },
                 {
-                    title: 'Meeting',
-                    start: new Date(y, m, d, 10, 30),
-                    allDay: false
-                },
-                {
-                    title: 'Lunch',
+                    title: 'Strathmore Graduation',
                     start: new Date(y, m, d, 12, 0),
                     end: new Date(y, m, d, 14, 0),
                     allDay: false
                 },
                 {
-                    title: 'Birthday Party',
+                    title: 'John`s Birthday Party',
                     start: new Date(y, m, d+1, 19, 0),
                     end: new Date(y, m, d+1, 22, 30),
                     allDay: false
                 },
                 {
-                    title: 'Click for Google',
+                    title: 'Lorna`s Wedding',
                     start: new Date(y, m, 28),
                     end: new Date(y, m, 29),
                     url: 'http://google.com/'
