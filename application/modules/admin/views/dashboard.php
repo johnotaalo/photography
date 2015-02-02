@@ -91,7 +91,7 @@
             <div class="hr-line-dashed"></div>
             
             <div class="row">
-                <div class="col-lg-4">
+                <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Daily ACtivities</h5>
@@ -107,7 +107,51 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
+                
+                <div class="col-lg-6">
+                    <div class="ibox float-e-margins">
+                        <div class="ibox-title">
+                            <h5>Percentage Hires</h5>
+                            <div class="ibox-tools">
+                                <a class="collapse-link">
+                                    <i class="fa fa-chevron-up"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="ibox-content text-center h-200">
+                            <span id="sparkline7"></span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="ibox-content">
+                        <div class="ibox float-e-margins">
+                            <div class="ibox-title">
+                                <h5>Uploads per month
+                                <small></small>
+                                </h5>
+                                <div ibox-tools></div>
+                            </div>
+                            <div class="ibox-content">
+                                <div>
+                                    <canvas id="lineChart" height="140"></canvas>
+                                </div>
+                            </div>
+                        </div>                                    
+                    </div>
+                    
+                </div>
+
+               
+
+            </div>
+            <div class="hr-line-dashed"></div>
+                <div class="row">
+                    <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Quick Upload</h5>
@@ -140,45 +184,8 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4">
-                    <div class="ibox float-e-margins">
-                        <div class="ibox-title">
-                            <h5>Percentage Hires</h5>
-                            <div class="ibox-tools">
-                                <a class="collapse-link">
-                                    <i class="fa fa-chevron-up"></i>
-                                </a>
-                            </div>
-                        </div>
-                        <div class="ibox-content text-center h-200">
-                            <span id="sparkline7"></span>
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-
-            <div class="row">
-                <div class="col-lg-8">
-                    <div class="ibox-content">
-                        <div class="ibox float-e-margins">
-                            <div class="ibox-title">
-                                <h5>Uploads per month
-                                <small></small>
-                                </h5>
-                                <div ibox-tools></div>
-                            </div>
-                            <div class="ibox-content">
-                                <div>
-                                    <canvas id="lineChart" height="140"></canvas>
-                                </div>
-                            </div>
-                        </div>                                    
-                    </div>
-                    
-                </div>
-
-                <div class="col-lg-4">
+                 <div class="col-lg-6">
                     <div class="ibox float-e-margins">
                         <div class="ibox-title">
                             <h5>Quick Email</h5>
@@ -210,8 +217,9 @@
                             </form>
                         </div>
                     </div>
-                </div>           
-            </div>
+                </div> 
+                    
+            </div>  
         </div>
     </div>
 </div>

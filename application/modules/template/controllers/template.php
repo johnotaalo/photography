@@ -11,4 +11,9 @@ class Template extends MY_Controller
 	{
 		$this->load->view('admin_template', $data);
 	}
+
+	function call_login_template($data = NULL)
+	{
+		$this->load->view('auth_template', $data);
+	}
 }

@@ -10,7 +10,7 @@ class events extends MY_Controller
 	{
 		parent:: __construct();
 		$this->load->model('events_model');
-		$this->check_login();
+		// $this->check_login();
 	}
 
 	public function index()
@@ -23,6 +23,7 @@ class events extends MY_Controller
 		$data['events_count'] = $this->events_model->get_event_counts();
 		$data['content_page'] = 'events/events';
 		$data['events'] = $this->ss_all_events();
+		
 		// echo "<pre>";print_r($data);die();
 		$this->template->call_admin_template($data);
 	}
@@ -153,132 +154,86 @@ public function ss_all_events()
         return $load_images;
 	}
 
-	
-	public function upload_file()
+	function ajax_event_images($event_id)
 	{
-		print_r($_FILES);
+		$return_data = array();
+		$pictures_section = '';
+		$all_pictures = '';
+		$model_images = $this->events_model->geteventimages($event_id);
 
-		if($_FILES['file']){
-			if(strtolower(substr($_FILES['file']['name'], -3)) == "jpg"){
-				$this->results_array = $this->read_abbott($this->upload->read_file_array($_FILES['file']['tmp_name'],"jpg"));
-				$this->save_image($this->results_array);
-
-			}elseif(strtolower(substr($_FILES['file']['name'], -3)) == "jpeg"){
-				$this->results_array = $this->read_cobas($this->upload->read_file_array($_FILES['file']['tmp_name'],"jpeg"));				
-				$this->save_image($this->results_array);
-			}else{
-			}
-		}
-
-		//print_r($this->results_array);
-
-	}
-
-	private function read_abbott($abbot_array){
-
-		// print_r($abbot_array);
-
-		if($abbot_array[0][0]=="FILE SIGNATURE"){
-
-			$completed_time 							= $abbot_array[6][1];
-			$operator									= $abbot_array[14][1];
-			$samp_prep_lot_no							= $abbot_array[15][1];
-			$samp_prep_exp_date							= $abbot_array[16][1];
-			$samples =array();
-
-			$samples_start_row=21;
-
-			for ($i=0; $i <= 99; $i++) { 
-				if($i!=48	&& 	$i!=49){
-
-					$samples[$i]["completed_time"]			=	$completed_time;
-					$samples[$i]["sample_id"] 				=	$abbot_array[$samples_start_row][1];
-					$samples[$i]["sample_location"] 		=	$abbot_array[$samples_start_row][0];
-					$samples[$i]["operator"]				=	$operator;
-					$samples[$i]["samp_prep_lot_no"]		=	$samp_prep_lot_no;
-					$samples[$i]["samp_prep_exp_date"]		=	$samp_prep_exp_date;
-
-					if($abbot_array[$samples_start_row][5]=="Not Detected"){
-
-						$samples[$i]["result"] 				= "N";
-					}else if($abbot_array[$samples_start_row][5]=="HIV-1 Detected"){
-
-						$samples[$i]["result"] 				= "P";
-
-					}else if($abbot_array[$samples_start_row][5]=="HIV-2 Detected"){
-
-						$samples[$i]["result"] 				= "P";
-					}else {
-
-						$samples[$i]["result"] 				= "F";
-					}
-
-					$samples_start_row++;
+		if ($model_images) {
+			$pictures_section .= '<div class="carousel slide" id="carousel2">
+                                <ol class="carousel-indicators">';
+            $counter = 0;
+            $first_five = array_slice($model_images, 0, 5);
+			foreach ($first_five as $key => $value) {
+				if($counter == 0){
+					$pictures_section .= '<li data-slide-to = "'.$counter.'" data-target = "#carousel2" class = "active"></li>';
 				}
-			}
-
-			// print_r($samples);
-
-			return $samples;
-		}
-	}
-
-	private function read_cobas($cobas_array){
-		// print_r($cobas_array);
-
-		if($cobas_array[0][0]=="Patient Name"){
-
-			$samples 	=	array();
-
-			for ($i=0; $i <= 23; $i++) { 
-
-				$samples[$i]["sample_id"] 			=	$cobas_array[$i+2][2];
-				$samples[$i]["sample_location"] 	=	$cobas_array[$i+2][35];
-				$samples[$i]["completed_time"]		=	$cobas_array[$i+2][3];
-				$samples[$i]["gen_lot_no"]			=	$cobas_array[$i+2][14];
-				$samples[$i]["gen_lot_exp_date"]	=	$cobas_array[$i+2][15];
-
-				if($cobas_array[$i+2][8]=="Target Not Detected"){
-
-					$samples[$i]["result"] 				= "N";
-				}else if((int)$cobas_array[$i+2][8]==1){
-
-					$samples[$i]["result"] 				= "P";
-
-				}else {
-
-					$samples[$i]["result"] 				= "F";
+				else
+				{
+					$pictures_section .= '<li data-slide-to = "'.$counter.'" data-target = "#carousel2"></li>';
 				}
+				$counter++;
 			}
+			$pictures_section .='</ol>
+			<div class="carousel-inner">';
 
-			//print_r($samples);
-
-			return $samples;
-		}
-	}
-
-	private function save_image($res=array())
-	{
-
-		// $from_date = date('Y-m-d', strtotime('today - 90 days'));
-
-		// $samples 	=	R::getAll("SELECT * FROM `sample` WHERE `timestamp` > '$from_date' ");
-
-		$results_to_upload = array();
-
-		foreach ($res as $key => $value) {
-			foreach ($samples as $key1 => $value1) {
-				if((int)$value1['id']==(int)$value['sample_id']){
-					$results_to_upload[]=$value;
+			$counter = 0;
+			foreach ($first_five as $key => $value) {
+				if ($counter == 0) {
+					$pictures_section .= '<div class = "item active">';
 				}
+				else
+				{
+					$pictures_section .= '<div class = "item">';
+				}
+
+				$pictures_section .= '<img alt="image"  class="img-responsive carousel_image" src="'.$value['image_path'].'">
+				<div class = "carousel-caption">
+					<p>'.$value['description'].'</p>
+				</div></div>';
+
+				$counter++;
+
 			}
+			$pictures_section .= '
+                                <a data-slide="prev" href="#carousel2" class="left carousel-control">
+                                    <span class="icon-prev"></span>
+                                </a>
+                                <a data-slide="next" href="#carousel2" class="right carousel-control">
+                                    <span class="icon-next"></span>
+                                </a>
+                            </div></div>';
+            $first_three = array_slice($model_images, 0, 3);
+            $pictures_section .= '<br/><center><div class = "row">';
+            foreach ($first_three as $key => $value) {
+            	$pictures_section .= '<a href = "'.$value['image_path'].'" class = "fancybox" title = "'.$value['image_name'].'">
+            	<img src = "'.$value['image_path'].'" alt = "'.$value['image_name'].'"
+            	</a>';
+			}
+            $pictures_section .= '</div></center>';
+
+            foreach ($model_images as $key => $value) {
+            	$all_pictures .= '<a href = "'.$value['image_path'].'" class = "fancybox" title = "'.$value['image_name'].'">
+            	<img src = "'.$value['image_path'].'" alt = "'.$value['image_name'].'"
+            	</a>';
+            }
+		}
+		else
+		{
+			$pictures_section .= '<div class = "no_data">
+			<center><h1>No images Here!</h1>
+			<a class = "btn btn-danger btn-outline upload_caller">Scroll Down to Upload Some</a></center>
+			</div>';
+
+			$all_pictures = $pictures_section;
 		}
 
-		foreach ($results_to_upload as $key => $value) {
-			$sql = "INSERT INTO `sample_test_run` (`sample_id`,`result`) VALUES('".$value["sample_id"]."','".$value["result"]."')";
-			$this->db->query($sql);
-		}
+		$return_data['pictures_section'] = $pictures_section;
+		$return_data['all_pictures'] = $all_pictures;
 
+		echo json_encode($return_data);
 	}
 
 	public function start_to_end($begin)

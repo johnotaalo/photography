@@ -96,11 +96,34 @@ class events_model extends CI_Model
 				FROM `image_event` `ie`
 				LEFT JOIN `images` `img`
 				ON `ie`.`img_id` = `img`.`image_id` 
-				WHERE `ie`.`event_id` = '$event_id'";
+				WHERE `ie`.`event_id` = '$event_id'
+				ORDER BY `img`.`date_uploaded` DESC";
 
 		$result = $this->db->query($sql);
 
 		return $result->result_array();
+	}
+
+	function geteventimages($event_id)
+	{
+		$sql = "SELECT 
+					`img`.* 
+				FROM `image_event` `ie`
+				LEFT JOIN `images` `img`
+				ON `ie`.`img_id` = `img`.`image_id` 
+				WHERE `ie`.`event_id` = '$event_id'
+				ORDER BY `img`.`date_uploaded` DESC";
+
+		$query = $this->db->query($sql);
+		$result = $query->result_array();
+
+		if ($result) {
+			return $result;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	
 }

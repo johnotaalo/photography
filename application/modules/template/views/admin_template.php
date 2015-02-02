@@ -33,6 +33,13 @@
     <link href = "<?php echo base_url(); ?>assets/custom/css/custom.css" rel = "stylesheet">
      <link href="<?php echo base_url(); ?>assets/admin/css/plugins/chosen/chosen.css" rel="stylesheet">
 
+     <!-- iCheck -->
+     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/iCheck/custom.css" rel="stylesheet">
+
+    <!-- Calendar -->
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/fullcalendar/fullcalendar.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/fullcalendar/fullcalendar.print.css" rel='stylesheet' media='print'>
+
      <style type="text/css">
     /*a {
         text-decoration: none;
@@ -76,10 +83,10 @@
                         <a href="<?php echo base_url();?>models/modellist"><i class="fa fa-user"></i> <span class="nav-label">Models</span> </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-phone"></i> <span class="nav-label">Phone Book</span> </a>
+                        <a href="<?php echo base_url();?>contacts/load_all_contacts"><i class="fa fa-phone"></i> <span class="nav-label">Phone Book</span> </a>
                     </li>
                     <li>
-                        <a href="#"><i class="fa fa-calendar"></i> <span class="nav-label">Calendar</span> </a>
+                        <a href="<?php echo base_url();?>calendar/load_general_calendar"><i class="fa fa-calendar"></i> <span class="nav-label">Calendar</span> </a>
                     </li>
                    <li>
                         <a href="<?php echo base_url('events')?>"><i class="fa fa-calendar"></i> <span class="nav-label">Events</span> </a>
@@ -173,9 +180,15 @@
 
     <!-- Data Tables -->
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/fancybox/jquery.fancybox.js"></script>
-    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/dropzone/dropzone.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/plugins/chosen/chosen.jquery.js"></script>
     <script src="<?php echo base_url(); ?>assets/admin/js/select2.min.js" type="text/javascript"></script>
+
+    <!--iCheck -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/iCheck/icheck.min.js"></script>
+
+    <!-- Calendar -->
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/fullcalendar/moment.min.js"></script>
+    <script src="<?php echo base_url(); ?>assets/admin/js/plugins/fullcalendar/fullcalendar.min.js"></script>
 
 
     <script>
