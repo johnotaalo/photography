@@ -5,17 +5,14 @@ class Upload extends MY_Controller
 	function __construct(){
 		parent::__construct();
 		$this->load->model('upload_model');
-		$this->check_login();
 	}
 
 	function index()
 	{
 		$data['error'] = '';
 		$data['message'] = '';
-		$this->load->view('upload', $data);
 		$data['content_page'] = 'upload/upload';
 		$this->template->call_admin_template($data);
-
 	}
 
 	function upload_image()
@@ -111,8 +108,7 @@ class Upload extends MY_Controller
 			$message['type'] = "success";
 			$message['path'] = base_url() . $upload_path .'/'.$upload_data['file_name'];
 		}
-		echo "<pre>";print_r($message);die()
-		;
+
 		return $message;
 	}
 

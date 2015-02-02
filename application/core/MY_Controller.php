@@ -11,11 +11,10 @@ class MY_Controller extends MX_Controller
 		parent::__construct();
 		$this->load->module('upload');
 		$this->load->module('template');
-
-        $this->load->module('login');
 		$this->load->module('security');
 		$this->load->model('upload/upload_model');
 		$this->security->encryption_parameters();
+		$this->load->module('login');
 	}
 
 	function get_active($table)
@@ -58,6 +57,7 @@ class MY_Controller extends MX_Controller
 
 		echo json_encode($data);
 
+
 	}
 
 	public function email($id=NULL, $recepient, $subject, $message)  
@@ -96,15 +96,17 @@ class MY_Controller extends MX_Controller
     }
 
     function check_login()
-	{
-		$user_id = $this->session->userdata('userid');
-		$logged_in = $this->session->userdata('logged_in');
+    {
+        $user_id = $this->session->userdata('userid');
+        $logged_in = $this->session->userdata('logged_in');
 
-		if ($logged_in == FALSE) {
-			redirect(base_url('login'));
-		} 
-		
-	}
+        if ($logged_in == TRUE) {
+            echo "Welcome back now again";
+        } else {
+            redirect(base_url('login'));
+        }
+        
+    }
 
 }
 

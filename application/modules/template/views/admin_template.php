@@ -28,13 +28,11 @@
      <!-- Data Tables -->
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dataTables/dataTables.responsive.css" rel="stylesheet">
-
-    <!-- Drop Zone-->
-    <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dropzone/dropzone.css" type="text/css" rel="stylesheet" />
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dropzone/basic.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/admin/css/plugins/dropzone/dropzone.css" rel="stylesheet">
     <link href = "<?php echo base_url(); ?>assets/custom/css/custom.css" rel = "stylesheet">
      <link href="<?php echo base_url(); ?>assets/admin/css/plugins/chosen/chosen.css" rel="stylesheet">
+
      <style type="text/css">
     /*a {
         text-decoration: none;
@@ -87,7 +85,7 @@
                         <a href="<?php echo base_url('events')?>"><i class="fa fa-calendar"></i> <span class="nav-label">Events</span> </a>
                     </li>
                     <li>
-                        <a href="<?php echo base_url();?>login/logout"><i class="fa fa-lock"></i> <span class="nav-label">Log Out</span> </a>
+                        <a href="<?php echo base_url();?>admin/logout"><i class="fa fa-lock"></i> <span class="nav-label">Log Out</span> </a>
                     </li>
                     
                 </ul>
@@ -115,7 +113,7 @@
 
 
                 <li>
-                    <a href="<?php echo base_url();?>login/logout">
+                    <a href="<?php echo base_url();?>admin/logout">
                         <i class="fa fa-sign-out"></i> Log out
                     </a>
                 </li>
