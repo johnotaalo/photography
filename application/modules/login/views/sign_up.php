@@ -23,10 +23,10 @@
                         <input type="text" class="form-control input-lg" placeholder="Email Address" />
                     </div>
                     <div class="form-group m-b-20">
-                        <input type="text" class="form-control input-lg" placeholder="Password" />
+                        <input type="text" class="form-control input-lg" placeholder="Phone Number" />
                     </div>
                     <div class="form-group m-b-20">
-                        <input type="text" class="form-control input-lg" placeholder="Email Address" />
+                        <input type="text" class="form-control input-lg" placeholder="Postal Address(BOX-CODE)" />
                     </div>
                     <div class="form-group m-b-20">
                         <input type="text" class="form-control input-lg" placeholder="Password" />
