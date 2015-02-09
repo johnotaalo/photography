@@ -74,5 +74,16 @@ class Security extends MY_Controller
 		return $real_number;
 	}
 
+	function getexecutiontime()
+	{
+		$start = microtime(true);
+		$end = microtime(true);
+
+		$time = number_format(($end - $start), 2);
+		
+
+		return $time;
+	}
+
 
 }

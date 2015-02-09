@@ -77,6 +77,17 @@ class Search_model extends CI_Model
 		array_push($return_data, $data);
 		array_push($return_data, $data_images);
 
-		echo "<pre>";print_r($return_data);die;
+		//echo "<pre>";print_r($return_data);die;
+
+		return $return_data;
+	}
+
+	function highly_rated_model()
+	{
+		$query = $this->db->query("SELECT MAX(im.images) as total_uploads, im.* FROM (SELECT count(i.img_id) as images, m.* FROM image_model i JOIN models m ON  m.model_id = i.model_id GROUP BY m.model_id ORDER BY images DESC) im");
+		$result = $query->row();
+
+		return $result;
+
 	}
 }
