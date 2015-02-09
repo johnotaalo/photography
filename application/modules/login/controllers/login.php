@@ -24,5 +24,12 @@ class login extends MY_Controller
 
 		$this->template->call_login_template($data);
 	}
-	
+
+	function user_details()
+	{
+		// echo $user_id;die;
+		// echo "There is an id";die;
+		$userdetails = $this->login_model->get_user_details();
+		return $userdetails;
+	}
 }
