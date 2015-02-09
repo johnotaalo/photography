@@ -18,7 +18,7 @@ class Template extends MY_Controller
 
 	function call_front_end_template($data = NULL)
 	{
-		$this->load->view('front_end');
+		$this->load->view('front_end', $data);
 	}
 
 	function get_details()

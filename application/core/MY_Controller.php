@@ -109,6 +109,11 @@ class MY_Controller extends MX_Controller
         
     }
 
+    function logout()
+	{
+		$this->session->sess_destroy();
+		redierct(base_url());
+	}
 }
 
 ?>

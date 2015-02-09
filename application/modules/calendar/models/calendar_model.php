@@ -13,7 +13,17 @@ class calendar_model extends MY_Model
 
 		$result = $this->db->query($sql);
 
-		return $result->result_array();
+		$calendar = $result->result_array();
+		// echo "<pre>";print_r($calendar);die();
+		foreach ($calendar as $key => $value) {
+			// echo "<pre>";print_r($value);die();
+			$data['title'] = $value['event_name'];
+       		$data['start'] = "Date(y, m, 1)";
+		}
+		// echo "<pre>";print_r($data);die();
+		// json_encode($calendar);
+		
+		
 	}
 }
 ?>
