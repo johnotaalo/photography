@@ -13,7 +13,7 @@ class Search extends MY_Controller
 		$search_parameter = $this->input->post('search');
 		$results = $this->search_model->searchdatabase();
 		$counts = array();
-		$models_results = $events_results = $images_results = '<table class = "table table-hover">';
+		$models_results = $events_results = $images_results = '<table class = "table search_result">';
 		
 		if ($results) {
 			foreach ($results[0] as $key => $value) {
@@ -24,9 +24,27 @@ class Search extends MY_Controller
 					{
 						foreach ($value as $k => $v) {
 							$models_results .= '<tr>';
-							$models_results .= '<td class="model-image"><a href="#"><img alt="image" class="img-circle" src="'.$v['profile'].'"></td>';
-							$models_results .= '<td class="project-title">'.$v['first_name'].' '. $v['last_name'].'</td>';
+							$models_results .= '<td><a href="#" ><img class="model-image" alt="image" class="img-circle" src="'.$v['profile'].'"></td>';
+							$models_results .= '<td class="model-title"><h3><a href="#">'.ucwords(strtolower($v['first_name'].' '. $v['last_name'])).'</a></h3><br />
+							<a class="search-link" href = "'.base_url() . 'models/modelprofile/' . $this->security->encrypt_data($v['model_id']).'">'.base_url() . 'models/modelprofile/' . $this->security->encrypt_data($v['model_id']).'</a><br/>
+							<p>'.ucwords(strtolower($v['first_name'].' '. $v['last_name'])).' is a '.ucwords(strtolower($v['occupation'])).' at '.ucwords(strtolower($v['company'])).'</p></td>';
+							$models_results .= '<td>Model Since: <br />'.date('d-M-Y', strtotime($v['added_on'])).'<br />';
+							if ($v['active'] == 1) {
+								$models_results .= '<a href = "" class = "label label-primary" style = "width: 100%;display:block;">Active</a>';
+							}
+							else
+							{
+								$models_results .= '<a href = "" class = "label label-danger" style = "width: 100%;display:block;">Not Active</a>';
+							}
+							$models_results .= '</td>';
 							$models_results .= '</tr>';
+						}
+					}
+					else if ($key == 'events') {
+						foreach ($value as $k => $v) {
+							$events_results .= '<tr>';
+							$events_results .= '<td><a href="#" ><img class="model-image" alt="image" class="img-circle" src="'.$v['cover'].'"></td>';
+							$events_results .= '</tr>';
 						}
 					}
 				}
@@ -37,6 +55,8 @@ class Search extends MY_Controller
 		$data['highly_rated'] = $this->create_highly_rated();
 		$data['result_counts'] = $counts;
 		$data['models_results'] = $models_results;
+		$data['events_results'] = $events_results;
+		$data['images_results'] = $images_results;
 		$data['content_page'] = 'search/search_results';
 		$end = microtime(true);
 		$time = number_format(($end - $start), 2);

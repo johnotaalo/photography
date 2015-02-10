@@ -24,7 +24,7 @@ class Search_model extends CI_Model
 
 			$image_query = $this->db->query("SELECT * FROM images i JOIN image_sizes s ON s.size_id = i.size_id WHERE size LIKE '%".$value."%' OR i.image_name LIKE '%".$value."%' OR i.description LIKE '%".$value."%'");
 
-			$event_query = $this->db->query("SELECT * FROM events");
+			$event_query = $this->db->query("SELECT * FROM events WHERE event_name LIKE '%".$value."%'");
 
 			$model_result = $model_query->result_array();
 			$image_result = $image_query->result_array();
